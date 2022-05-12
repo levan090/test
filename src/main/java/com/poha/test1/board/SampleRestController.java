@@ -39,7 +39,7 @@ public class SampleRestController {
 		for (int i = 0; i < list.size(); i++) { 
 			testVO testSelect = (testVO)list.get(i);
 		  
-			log.info("testSelect.getId : {}",testSelect.getId());
+			log.info("testSelect.getId : {}",testSelect.gettestId());
 			log.info("testSelect.getContent : {}",testSelect.getContent()); 
 		}
 		

@@ -6,6 +6,6 @@
 	<title>Home</title>
 </head>
 <body>
-	<a href="/test1/inserttest">데이터 Insert</a>
+	<a href="/test1/inserttest.do">데이터 Insert</a>
 </body>
 </html>

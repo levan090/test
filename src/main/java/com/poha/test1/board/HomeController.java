@@ -43,7 +43,7 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@RequestMapping(value = "/inserttest", method = RequestMethod.GET)
+	@RequestMapping(value = "/inserttest.do", method = RequestMethod.GET)
 	public String inserttest(Locale locale, Model model) {
 		testVO testVO = new testVO();
 		
@@ -51,10 +51,11 @@ public class HomeController {
 		
 		sqlSession.insert("test1.insertTest", testVO);
 		
-		return "inserttest";
+		
+		return "redirect:dbtest.do";
 	}
 	
-	@RequestMapping(value = "/dbtest", method = RequestMethod.GET)
+	@RequestMapping(value = "/dbtest.do", method = RequestMethod.GET)
 	public String dbtest(Locale locale, Model model) {
 		List<testVO> list = sqlSession.selectList("test1.selectTest");
 		

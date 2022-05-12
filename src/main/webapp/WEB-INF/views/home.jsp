@@ -13,7 +13,7 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 
-<a href="/test1/dbtest">AWS RDB 조회</a> <br/>
-<a href="/test1/inserttest">AWS RDB 입력</a>
+<a href="/test1/dbtest.do">AWS RDB 조회</a> <br/>
+<a href="/test1/inserttest.do">AWS RDB 입력</a>
 </body>
 </html>
