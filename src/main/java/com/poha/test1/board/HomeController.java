@@ -101,8 +101,8 @@ public class HomeController {
 //	}
 	
 	// 데이터 삭제
-	@RequestMapping(value="/delete",method = RequestMethod.GET)
-	public String getDelete(@RequestParam("testId") int testId) throws Exception{
+	@RequestMapping(value = "/delete",method = RequestMethod.GET)
+	public String delete(@RequestParam("testId") int testId) throws Exception{
 			
 		service.delete(testId);
 		

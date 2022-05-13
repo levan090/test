@@ -27,6 +27,7 @@ public class TestServiceImpl implements TestService {
 			dao.insertTest(vo);
 	}
 
+	//게시물 삭제 
 	@Override
 	public void delete(int testId) throws Exception {
 		dao.delete(testId);

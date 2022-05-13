@@ -10,7 +10,7 @@ public class testVO {
 	public int gettestId() {
 		return testId;
 	}
-	public void setId(int testId) {
+	public void settestId(int testId) {
 		this.testId = testId;
 	}
 	public String getContent() {

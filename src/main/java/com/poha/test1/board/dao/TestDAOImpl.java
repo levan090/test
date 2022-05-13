@@ -16,8 +16,9 @@ public class TestDAOImpl implements TestDAO{
 
 	@Inject
 	private SqlSession sql;
-	private static String namespace="com.poha.test1.board.vo.testVO";
-//	private static String namespace="test1";
+	
+
+	private static String namespace="test1";
 	
 	public List<testVO> list() throws Exception {
 		return sql.selectList(namespace+".list");
@@ -27,12 +28,10 @@ public class TestDAOImpl implements TestDAO{
 		sql.insert(namespace + ".write",vo);
 	}
 	
-	
-	
 	public void modifty(testVO vo) throws Exception{}
 	
 	public void delete(int testId) throws Exception{
-		sql.delete(namespace + ".delete",testId);
+		sql.delete(namespace + ".delete", testId);
 		
 	}
 
