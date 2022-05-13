@@ -34,6 +34,11 @@ public class TestServiceImpl implements TestService {
 		
 	}
 	
+	// 게시물 수정
+	@Override
+	public void modify(testVO vo) throws Exception{
+		dao.modify(vo);	
+	}
 	@Override
 	public int count() throws Exception {
 	 return dao.count();

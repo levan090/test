@@ -17,7 +17,6 @@ public class TestDAOImpl implements TestDAO{
 	@Inject
 	private SqlSession sql;
 	
-
 	private static String namespace="test1";
 	
 	public List<testVO> list() throws Exception {
@@ -28,16 +27,14 @@ public class TestDAOImpl implements TestDAO{
 		sql.insert(namespace + ".write",vo);
 	}
 	
-	public void modifty(testVO vo) throws Exception{}
+	public void modify(testVO vo) throws Exception{
+		sql.update(namespace + ".modify", vo);
+		
+	}
+	
 	
 	public void delete(int testId) throws Exception{
 		sql.delete(namespace + ".delete", testId);
-		
-	}
-
-	@Override
-	public void modify(testVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -62,4 +59,6 @@ public class TestDAOImpl implements TestDAO{
 	  
 	 return sql.selectList(namespace + ".listPage", data);
 	}
+
+	
 }

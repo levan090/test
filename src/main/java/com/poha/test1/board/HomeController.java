@@ -90,7 +90,7 @@ public class HomeController {
 		return "dbtest";
 	}
 	
-//	// 목록 조회
+//	// 게시물 자세히
 //	@RequestMapping(value="/dbtest.do", method=RequestMethod.GET)
 //	public void getList(Model model) throws Exception {
 //		
@@ -108,6 +108,28 @@ public class HomeController {
 		
 		return "redirect:dbtest.do";
 	}
+	
+	// 게시물 수정
+	@RequestMapping(value="/modify",method = RequestMethod.GET)
+	public void getModify(@RequestParam("testId") int testId, Model model) throws Exception{
+		List<testVO> list = sqlSession.selectList("test1.selectTest");
+		
+		for (int i = 0; i < list.size(); i++) {
+			testVO testSelect = (testVO)list.get(i);
+			logger.info("testSelect.gettestId : {}",testSelect.gettestId());
+			logger.info("testSelect.getContent : {}",testSelect.getContent());
+		}
+		
+		model.addAttribute("list", list);
+		
+	}
+	
+	@RequestMapping(value="/modify",method = RequestMethod.POST)
+	public String getModify(testVO vo) throws Exception{
+		service.modify(vo);
+		return "redirect:dbtest.do";
+	}
+	
 	
 	//게시물 목록+ 페이징 추가
 	@RequestMapping(value="/listPage", method = RequestMethod.GET)

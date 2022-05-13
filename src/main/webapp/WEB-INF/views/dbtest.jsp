@@ -55,8 +55,8 @@
 			<td>${list.testId}</td>
 			<td>${list.content}</td>
 			<div>
-			<td><button id="btn_modify" type="button">수정</button> </td>
-			<td><a href="/test1/delete?testId=${list.testId}">삭제</a></td>
+			<td><a href="/test1/modify?testId=${list.testId}"><button>수정</button></a> </td>
+			<td><a href="/test1/delete?testId=${list.testId}"><button>삭제</button></a></td>
 			</div>
 		</tr>
 	</c:forEach>

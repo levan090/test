@@ -4,26 +4,31 @@
 <!-- <mapper namespace="com.poha.test1.board.vo.testVO"> -->
 <mapper namespace="test1">
 
+	<!-- 전체 조회 -->
 	<select id="selectTest" resultType="com.poha.test1.board.vo.testVO">
 		SELECT testId, content
 		  FROM ttest
 		  ORDER BY testId DESC
  	</select>
 
+	<!-- 게시물 작성 -->
   	<insert id="insertTest" parameterType="com.poha.test1.board.vo.testVO">
 		INSERT INTO
 		       ttest (content)
 		       VALUES (#{content})
 	 </insert> 
-	 
+	 <!-- 게시물 삭제 -->
 	 <delete id="delete" parameterType="int">
 	 	DELETE FROM ttest
 	 	WHERE testId=#{testId}
 	 </delete>
 	
-	<update id="updateTest" parameterType="com.poha.test1.board.vo.testVO">
-		UPDATE ttest SET content =#{content}
-		WHERE testId=#{testId}
+	<!-- 수정(동작x) -->
+	<update id="modify" parameterType="com.poha.test1.board.vo.testVO">
+		update ttest
+			set
+				content = #{content}
+			where testID = #{testId}
 	</update>
 	
 	<!-- 게시물 총갯수 -->
