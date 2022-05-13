@@ -8,7 +8,7 @@
 	<select id="selectTest" resultType="com.poha.test1.board.vo.testVO">
 		SELECT testId, content
 		  FROM ttest
-		  ORDER BY testId DESC
+		  ORDER BY testId ASC
  	</select>
 
 	<!-- 게시물 작성 -->
@@ -23,24 +23,24 @@
 	 	WHERE testId=#{testId}
 	 </delete>
 	
-	<!-- 수정(동작x) -->
+	<!-- 수정 -->
 	<update id="modify" parameterType="com.poha.test1.board.vo.testVO">
-		update ttest
-			set
+		UPDATE ttest
+			SET
 				content = #{content}
-			where testID = #{testId}
+			WHERE testID = #{testId}
 	</update>
 	
 	<!-- 게시물 총갯수 -->
 	<select id="count" resultType="int">
-		select count(testId) from ttest
+		SELECT count(testId) FROM ttest
 	</select>
 	
 	<!-- 게시물 목록+ 페이징 -->
 	<select id="listPage" parameterType="hashMap" resultType="com.poha.test1.board.vo.testVO">
- 		select testId, content
- 		from ttset
- 		order by testId DESC
- 			limit #{displayPost}, #{postNum}
+ 		SELECT testId, content
+ 		FROM ttest
+ 		ORDER BY testId ASC
+ 			limit #{displayPost},#{postNum}
  	</select>
  </mapper>

@@ -123,7 +123,7 @@ public class HomeController {
 		model.addAttribute("list", list);
 		
 	}
-	
+	// 게시물 수정2
 	@RequestMapping(value="/modify",method = RequestMethod.POST)
 	public String getModify(testVO vo) throws Exception{
 		service.modify(vo);
@@ -131,6 +131,7 @@ public class HomeController {
 	}
 	
 	
+
 	//게시물 목록+ 페이징 추가
 	@RequestMapping(value="/listPage", method = RequestMethod.GET)
 	public void getListPage(Model model, @RequestParam("num") int num) throws Exception{
@@ -150,5 +151,6 @@ public class HomeController {
 		model.addAttribute("list",list);
 		model.addAttribute("pageNum",pageNum);
 	}
+	
 	
  }

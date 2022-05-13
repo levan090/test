@@ -41,7 +41,7 @@ public class TestServiceImpl implements TestService {
 	}
 	@Override
 	public int count() throws Exception {
-	 return dao.count();
+		return dao.count();
 	}
 	
 	@Override
