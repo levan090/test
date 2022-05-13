@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!--<mapper namespace="com.poha.test1.board.vo.testVO">-->
 <mapper namespace="test1">
 
 	<select id="selectTest" resultType="com.poha.test1.board.vo.testVO">
-		SELECT *
+		SELECT testId, content
 		  FROM ttest
-		  ORDER BY testId DESC;
+		  ORDER BY testId DESC
  	</select>
 
   	<insert id="insertTest" parameterType="com.poha.test1.board.vo.testVO">
 		INSERT INTO
-		       ttest (
-		       		  content
-		       )
-		       VALUES (
-			       		 #{content}     
-		       );
+		       ttest (content)
+		       VALUES (#{content})
 	 </insert> 
 	 
+	 <delete id="deleteTest" parameterType="int">
+	 	DELETE FROM ttest
+	 	WHERE testId=#{testId}
+	 </delete>
 	
+	<update id="updateTest" parameterType="com.poha.test1.board.vo.testVO">
+		UPDATE ttest SET content =#{content}
+		WHERE testId=#{testId}
+	</update>
+	
+	<!-- 게시물 총갯수 -->
+	<select id="count" resultType="int">
+		select count(testId) from ttest
+	</select>
+	
+	<!-- 게시물 목록+ 페이징 -->
+	<select id="listPage" parameterType="hashMap" resultType="com.poha.test1.board.vo.testVO">
+ 		select testId, content
+ 		from ttset
+ 		order by testId DESC
+ 			limit #{displayPost}, #{postNum}
+ 
+ 	</select>
  </mapper>

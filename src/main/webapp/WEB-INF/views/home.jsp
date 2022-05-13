@@ -14,6 +14,8 @@
 
 
 <a href="/test1/dbtest.do">AWS RDB 조회</a> <br/>
-<a href="/test1/inserttest.do">AWS RDB 입력</a>
+
+<a href="/test1/listPage?num=1">페이징</a> <br/>
+
 </body>
 </html>

@@ -5,7 +5,6 @@
 <%@ page import="com.poha.test1.board.vo.testVO" %>
 <html>
 <head>
-
 	<title>Home</title>
 </head>
 <body>
@@ -54,26 +53,21 @@
 		<tr>
 			<td>${list.testId}</td>
 			<td>${list.content}</td>
-			<div>
 			<td><button id="btn_modify" type="button">수정</button> </td>
-			<td><a href="/test1/delete?testId=${list.testId}">삭제</a></td>
-			</div>
+			<td><a href="/test1/delete?testId=${test.testId}">삭제</a></td>
 		</tr>
 	</c:forEach>
 	</tbody>
 </table>
-<form method ="post" action="/test1/inserttest.do">
-<input type="text" value="${vo.content}" name="content" > 
-<input type="submit" value="댓글입력">
-</form> 
-
+ 
 <div>
  <c:forEach begin="1" end="${pageNum}" var="num">
     <span>
-     <a href="/board/listPage?num=${num}">${num}</a>
+     <a href="/test1/listPage?num=${num}">${num}</a>
   </span>
  </c:forEach>
 </div>
+
 </body>
 
 </html>
