@@ -68,7 +68,8 @@ public class HomeController {
 //			sqlSession.insert("test1.insertTest", testVO);
 			sqlSession.insert("test1.insertTest", param);	//한글깨짐현상있어서 변경
 			
-			return "redirect:dbtest.do";
+			return "redirect:listPage?num=1";
+			
 		}
 	
 	
@@ -136,6 +137,7 @@ public class HomeController {
 	@RequestMapping(value="/listPage", method = RequestMethod.GET)
 	public void getListPage(Model model, @RequestParam("num") int num) throws Exception{
 
+		
 		// 게시물 총 갯수
 		int count = service.count();
 		
@@ -143,7 +145,8 @@ public class HomeController {
 		int postNum=10;
 		// 하단 페이징 번호 (게시물 총갯수 / 한 페이지에 출력할 갯수 )
 		int pageNum=(int)Math.ceil((double)count/postNum);
-		
+			
+	
 		int displayPost = (num-1) * postNum;
 		
 		List<testVO> list = null;

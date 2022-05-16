@@ -5,7 +5,14 @@
 <%@ page import="com.poha.test1.board.vo.testVO" %>
 <html>
 <head>
-
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).on("click",'#modify',function(){
+		alert("수정창띄우기");
+	});
+});
+</script>
 	<title>Home</title>
 </head>
 <body>
@@ -47,6 +54,7 @@
 		<tr>
 			<th>번호</th>
 			<th>내용</th>
+			<th>작성자</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -54,26 +62,33 @@
 		<tr>
 			<td>${list.testId}</td>
 			<td>${list.content}</td>
+			<td>작성자표시</td>
 			<div>
 			<td><a href="/test1/modify?testId=${list.testId}"><button>수정</button></a> </td>
+			<td><button id="modify" name="modify_btn">수정2</button> </td>
 			<td><a href="/test1/delete?testId=${list.testId}"><button>삭제</button></a></td>
+		
 			</div>
 		</tr>
 	</c:forEach>
 	</tbody>
 </table>
+
+<!-- 입력 -->
 <form method ="post" action="/test1/inserttest.do">
 <input type="text" value="${vo.content}" name="content" > 
 <input type="submit" value="댓글입력">
 </form> 
 
-<!--  <div>
+<!-- 페이징 -->
+<div>
  <c:forEach begin="1" end="${pageNum}" var="num">
     <span>
-     <a href="/board/listPage?num=${num}">${num}</a>
-  </span>
+     <a href="/test1/listPage?num=${num}">${num}</a>
+  	</span>
  </c:forEach>
-</div>  -->
+</div>
+
 </body>
 
 </html>
