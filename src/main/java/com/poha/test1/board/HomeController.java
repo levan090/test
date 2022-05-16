@@ -31,8 +31,8 @@ public class HomeController {
 	@Inject
 	private TestService service;
 	
-	private static int no;
-	
+	private static int no;		// 페이지 마지막
+	private static int cou;		// 게시물의 총 갯수
 
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -58,7 +58,7 @@ public class HomeController {
 
 	// 테이블 조회한 곳에서 insert
 		@RequestMapping(value = "/inserttest.do")
-		public String inserttest(HttpServletRequest httpServletRequest, Model model) {
+		public String inserttest(HttpServletRequest httpServletRequest, Model model) throws Exception {
 			
 			String param = httpServletRequest.getParameter("content");
 			testVO testVO = new testVO();
@@ -67,8 +67,11 @@ public class HomeController {
 			
 //			sqlSession.insert("test1.insertTest", testVO);
 			sqlSession.insert("test1.insertTest", param);	//한글깨짐현상있어서 변경
+				
+			if(cou%10 == 0) { no = no+1;}			// 새로운 페이지가 생길 경우
 			
-			return "redirect:listPage?num=1";
+			return "redirect:listPage?num=" + no;
+			
 			
 		}
 	
@@ -140,19 +143,52 @@ public class HomeController {
 		
 		// 게시물 총 갯수
 		int count = service.count();
-		
+		cou = count;
 		// 한 페이지에 출력할 게시물갯수
 		int postNum=10;
 		// 하단 페이징 번호 (게시물 총갯수 / 한 페이지에 출력할 갯수 )
 		int pageNum=(int)Math.ceil((double)count/postNum);
 			
-	
+		// 출력할 게시물
 		int displayPost = (num-1) * postNum;
+		
+		// 한번에 표시할 페이징 번호의 갯수
+		int pageNum_cnt = 10;
+		
+		// 표시되는 페이지 번호 중 마지막 번호
+		int endPageNum = (int)(Math.ceil((double)num / (double)pageNum_cnt) * pageNum_cnt);
+		
+		// 표시되는 페이지 번호 중 첫번 째 번호
+		int startPageNum = endPageNum - (pageNum_cnt - 1);
+		
+		// 마지막 번호 재계산
+		int endPageNum_tmp = (int)(Math.ceil((double)count / (double)pageNum_cnt));
+		
+		if(endPageNum > endPageNum_tmp) {
+			endPageNum = endPageNum_tmp;
+		}
+		no = endPageNum_tmp;  // 마지막페이지
+		
+		boolean prev = startPageNum == 1? false : true;
+		boolean next = endPageNum * pageNum_cnt >= count ? false : true;
 		
 		List<testVO> list = null;
 		list = service.listPage(displayPost, postNum);
 		model.addAttribute("list",list);
 		model.addAttribute("pageNum",pageNum);
+		
+		// 시작 및 끝 번호
+		model.addAttribute("startPageNum", startPageNum);
+		model.addAttribute("endPageNum", endPageNum);
+		
+		// 이전 및 다음
+		model.addAttribute("prev",prev);
+		model.addAttribute("next",next);
+		
+		// 현재페이지
+		model.addAttribute("select", num);
+		
+		
 	}
 	
 	

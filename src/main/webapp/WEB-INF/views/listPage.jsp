@@ -14,6 +14,7 @@
 		<tr>
 			<th>번호</th>
 			<th>내용</th>
+			<th>작성자</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,6 +22,7 @@
 		<tr>
 			<td>${list.testId}</td>
 			<td>${list.content}</td>
+			<td>작성자이름</td>
 			<div>
 			<td><a href="/test1/modify?testId=${list.testId}"><button>수정</button></a> </td>
 			<td><a href="/test1/delete?testId=${list.testId}"><button>삭제</button></a></td>
@@ -35,11 +37,31 @@
 </form> 
 
 <div>
- <c:forEach begin="1" end="${pageNum}" var="num">
+	<c:if test="${prev}">
+		<span>[ <a href="/test1/listPage?num=${startPageNum -1}">이전</a>]</span>
+	</c:if>
+	
+	<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
+		<span>
+			<c:if test="${select !=num}">
+				<a href="/test1/listPage?num=${num}">${num}</a>
+			</c:if>
+			
+			<c:if test="${select ==num}">
+				<b>${num}</b>
+			</c:if>
+		</span>
+	</c:forEach>
+	
+	<c:if test="${next}">
+		<span>[ <a href="/test1/listPage?num=${endPageNum + 1}">다음</a>]</span>
+	</c:if>
+	
+ <!-- <c:forEach begin="1" end="${pageNum}" var="num">
     <span>
      <a href="/test1/listPage?num=${num}">${num}</a>
   	</span>
- </c:forEach>
+ </c:forEach> -->
 </div>
 </body>
 

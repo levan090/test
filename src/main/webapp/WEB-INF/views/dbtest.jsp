@@ -9,7 +9,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$(document).on("click",'#modify',function(){
-		alert("수정창띄우기");
+		var result = prompt("수정하려는 내용");
+		if(result != null){
+			
+		}
+		else
+			alert('내용을 수정하지 않았습니다.');
 	});
 });
 </script>
@@ -65,7 +70,7 @@ $(document).ready(function(){
 			<td>작성자표시</td>
 			<div>
 			<td><a href="/test1/modify?testId=${list.testId}"><button>수정</button></a> </td>
-			<td><button id="modify" name="modify_btn">수정2</button> </td>
+			<td><button id="modify" name="modify_btn">수정2</button></td>
 			<td><a href="/test1/delete?testId=${list.testId}"><button>삭제</button></a></td>
 		
 			</div>
