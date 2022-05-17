@@ -34,7 +34,11 @@ public class HomeController {
 	private static int no;		// 페이지 마지막
 	private static int cou;		// 게시물의 총 갯수
 
-	
+	// 한 페이지에 출력할 게시물갯수
+	int postNum=5;
+	// 한번에 표시할 페이징 번호의 갯수
+	int pageNum_cnt = 5;
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	// 기본 홈
@@ -68,7 +72,7 @@ public class HomeController {
 //			sqlSession.insert("test1.insertTest", testVO);
 			sqlSession.insert("test1.insertTest", param);	//한글깨짐현상있어서 변경
 				
-			if(cou%10 == 0) { no = no+1;}			// 새로운 페이지가 생길 경우
+			if(cou%postNum == 0) { no = no+1;}			// 새로운 페이지가 생길 경우
 			
 			return "redirect:listPage?num=" + no;
 			
@@ -144,17 +148,12 @@ public class HomeController {
 		// 게시물 총 갯수
 		int count = service.count();
 		cou = count;
-		// 한 페이지에 출력할 게시물갯수
-		int postNum=10;
 		// 하단 페이징 번호 (게시물 총갯수 / 한 페이지에 출력할 갯수 )
 		int pageNum=(int)Math.ceil((double)count/postNum);
 			
 		// 출력할 게시물
 		int displayPost = (num-1) * postNum;
-		
-		// 한번에 표시할 페이징 번호의 갯수
-		int pageNum_cnt = 10;
-		
+				
 		// 표시되는 페이지 번호 중 마지막 번호
 		int endPageNum = (int)(Math.ceil((double)num / (double)pageNum_cnt) * pageNum_cnt);
 		
