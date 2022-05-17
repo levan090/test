@@ -13,9 +13,9 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 
-<a href="/test1/dbtest.do">AWS RDB 조회</a> <br/>
+<a href="/test1/dbtest.do">기본 리스트</a> <br/>
 
-<a href="/test1/listPage?num=1">페이징</a> <br/>
+<a href="/test1/listPage?num=1">리스트(페이징)</a> <br/>
 
 </body>
 </html>

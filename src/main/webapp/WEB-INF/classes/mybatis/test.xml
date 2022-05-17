@@ -43,4 +43,11 @@
  		ORDER BY testId ASC
  			limit #{displayPost},#{postNum}
  	</select>
+ 	
+ 	<!-- merge --> <!-- mariadb에서는 merge의 역할을 insert into values on duplicate key update로 진행 -->
+ 	<insert id = "merge" parameterType="com.poha.test1.board.vo.testVO">
+ 		INSERT INTO ttest
+ 		VALUES (#{testId},#{content})
+ 		ON DUPLICATE KEY UPDATE content = #{content} 
+ 	</insert>
  </mapper>
