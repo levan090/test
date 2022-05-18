@@ -27,5 +27,6 @@ public interface TestDAO {
 		// 게시물 + 페이징
 		public List listPage(int displayPost, int postNum) throws Exception;
 		
-		
+		// 게시물 갱신
+		public void merge(testVO vo) throws Exception;
 }

@@ -10,18 +10,14 @@
 
 function getPost(mode){
 	var theForm = document.insertText;
-	
+//	var id = document.getByName("");
 	if( mode == 'insert')
 		{
 			theForm.method = "post";
 			theForm.action = "/test1/inserttest.do";
 		}
-	else if(mode =='modify' )
+	else if(mode != 'modify' )
 		{
-			theForm.method = "GET";
-			theForm.action = "/test1/modify";
-			theForm.testId = "${vo.testId}";
-			theForm.content = "${vo.content}";
 		
 		}
 	theForm.submit();
@@ -52,7 +48,7 @@ function getPost(mode){
 			<div>
 			<td><a href="/test1/modify?testId=${list.testId}"><button>수정</button></a> </td>
 			<form name = "modifyform">
-			<td><input type = button name ="modify" value = "수정2" onClick="getPost('modify')"/></td>
+			<td><input type = button name ="modify" value = "수정2" onClick="getPost(${list.testId})"/></td>
 			</form>	
 			<td><a href="/test1/delete?testId=${list.testId}"><button>삭제</button></a></td>
 			

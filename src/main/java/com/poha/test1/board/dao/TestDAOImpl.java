@@ -61,5 +61,10 @@ public class TestDAOImpl implements TestDAO{
 	 return sql.selectList(namespace + ".listPage", data);
 	}
 
+	@Override
+	public void merge(testVO vo) throws Exception {
+		// TODO Auto-generated method stub     
+				// 수정 필요
+	}
 	
 }

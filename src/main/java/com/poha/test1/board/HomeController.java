@@ -34,19 +34,13 @@ public class HomeController {
 	private static int no;		// 페이지 마지막
 	private static int cou;		// 게시물의 총 갯수
 
-<<<<<<< HEAD
+
 	// 한 페이지에 출력할 게시물갯수
 	int postNum=5;
 	// 한번에 표시할 페이징 번호의 갯수
 	int pageNum_cnt = 5;
 
-=======
-	//한 페이지에 출력할 게시물갯수
-	int postNum=5;
-	//한번에 표시할 페이징 번호의 갯수
-	int pageNum_cnt = 5;
 	
->>>>>>> 7d97089 (1. 페이지 수정 구현)
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	// 기본 홈
@@ -116,8 +110,6 @@ public class HomeController {
 		
 	}
 	
-	
-	
 	// 게시물 수정
 	@RequestMapping(value="/modify",method = RequestMethod.GET)
 	public void getModify(@RequestParam("testId") int testId, Model model) throws Exception{
@@ -141,6 +133,7 @@ public class HomeController {
 	}
 	
 	
+	
 
 	//게시물 목록+ 페이징 추가
 	@RequestMapping(value="/listPage", method = RequestMethod.GET)
@@ -155,11 +148,9 @@ public class HomeController {
 			
 		// 출력할 게시물
 		int displayPost = (num-1) * postNum;
-<<<<<<< HEAD
+
 				
-=======
-		
->>>>>>> 7d97089 (1. 페이지 수정 구현)
+
 		// 표시되는 페이지 번호 중 마지막 번호
 		int endPageNum = (int)(Math.ceil((double)num / (double)pageNum_cnt) * pageNum_cnt);
 		

@@ -49,4 +49,9 @@ public class TestServiceImpl implements TestService {
 	 return dao.listPage(displayPost, postNum);
 	}
 
+	@Override
+	public void merge(testVO vo) throws Exception{
+		dao.merge(vo);	
+	}
+	
 }
