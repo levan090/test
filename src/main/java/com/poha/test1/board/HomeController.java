@@ -250,7 +250,7 @@ public class HomeController {
 			}else {	
 				session.setAttribute("member",login);	// login이 성공했다면 세션의 member에 login으로 저장
 			}
-			return "redirect:/";		
+			return "redirect:/";				// 임시로 main으로 이동하게 변경
 		}
 		
 		//로그아웃
@@ -261,6 +261,16 @@ public class HomeController {
 			session.setAttribute("member",null);	//조건을 구별하지 않고 세션의 member값을 null로 바꿈
 			
 			return "redirect:/";		
+		}
+		
+		@RequestMapping(value="/main.do")
+		public String include_main(Model model) {
+			Object session = CommonUtil.getMemberSession();		// getMemberSession()을 사용해 session의 member를 구함
+			
+			if(session != null) {								// session이 null값이 아니라면  member에 session을 넣음
+				model.addAttribute("member",session);
+			}		
+			return "main";
 		}
 	
 }
