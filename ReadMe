@@ -3,7 +3,7 @@ TEST
 
 
 
-**DB 스키마
+**DB 스키마 [댓글]
 CREATE TABLE `ttest` (
    `testId` INT(11) NOT NULL AUTO_INCREMENT,
    `content` VARCHAR(100) NULL DEFAULT NULL,
@@ -15,10 +15,28 @@ AUTO_INCREMENT=1
 ;
 
 
+**DB 스키마 [회원]
+CREATE TABLE `mp_member` (
+	`USERID` VARCHAR(40) NOT NULL,
+	`USERPASS` VARCHAR(100) NOT NULL,
+	`USERNAME` VARCHAR(40) NOT NULL,
+	PRIMARY KEY (`USERID`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
 
+**도커 적용하기
+- https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:dev3.6:dep:build_tool:docker  <-- 따라함
 
+*이미지 빌드
+docker build –t porcois/spring:1 .
 
+*컨테이너 실행
+docker run –t –i –p 18080:8080 porcois/spring:1
 
+*접속 테스트
+http://localhost:18080/test1/
 
 
 

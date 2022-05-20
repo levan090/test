@@ -46,8 +46,24 @@
  	
  	<!-- merge --> <!-- mariadb에서는 merge의 역할을 insert into values on duplicate key update로 진행 -->
  	<insert id = "merge" parameterType="com.poha.test1.board.vo.testVO">
- 		INSERT INTO ttest
+ 		INSERT INTO ttest(testId, content)
  		VALUES (#{testId},#{content})
  		ON DUPLICATE KEY UPDATE content = #{content} 
  	</insert>
+ 	
+ 	<!-- 회원가입 -->
+ 	<insert id="register">
+ 			INSERT INTO 
+ 			mp_member (USERID, USERPASS, USERNAME)
+ 			VALUES(#{userId},#{userPass},#{userName})
+ 	</insert>
+ 
+	
+ 	<!-- 로그인 -->
+ 	<select id="login" resultType="com.poha.test1.board.vo.MemberVO">
+ 		SELECT USERID, USERPASS
+ 		FROM mp_member
+ 		WHERE USERID =#{userId}
+ 		AND USERPASS= #{userPass}
+ 	</select>
  </mapper>

@@ -11,14 +11,16 @@
 function getPost(mode){
 	var theForm = document.insertText;
 //	var id = document.getByName("");
-	if( mode == 'insert')
+	if( mode == 'insert')				// 데이터 삽입
 		{
 			theForm.method = "post";
-			theForm.action = "/test1/inserttest.do";
+			theForm.action = "/inserttest.do";
 		}
-	else if(mode != 'modify' )
+	else if(isNaN(mode) == 'false')				//동작 x
 		{
-		
+			theForm.method = "post";
+			theForm.action = "/test1/modify" 
+			theForm.testId = "mode";
 		}
 	theForm.submit();
 	
@@ -46,11 +48,12 @@ function getPost(mode){
 			<td><input name='input_${list.testId}' value="${list.content}"  disabled="disabled"/></td>
 			<td>작성자표시</td>
 			<div>
-			<td><a href="/test1/modify?testId=${list.testId}"><button>수정</button></a> </td>
+			<td><a href="/modify?testId=${list.testId}"><button>수정</button></a> </td>
 			<form name = "modifyform">
 			<td><input type = button name ="modify" value = "수정2" onClick="getPost(${list.testId})"/></td>
 			</form>	
-			<td><a href="/test1/delete?testId=${list.testId}"><button>삭제</button></a></td>
+				
+			<td><a href="/delete.do?testId=${list.testId}"><button>삭제</button></a></td>
 			
 			</div>
 		</tr>
