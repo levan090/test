@@ -35,7 +35,6 @@
 					var frmRegist = document.register;
 					frmRegist.method = "post";
 					frmRegist.action = "register_proc.do";
-
 					frmRegist.submit();
 				}
 					//alert("회원가입이 완료되었습니다.");

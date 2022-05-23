@@ -66,7 +66,7 @@ public class MemberController {
 				}else {	
 					session.setAttribute("member",login);	// login이 성공했다면 세션의 member에 login으로 저장
 				}
-				return "redirect:main.do";				// 임시로 main으로 이동하게 변경
+				return "redirect:/";				// 임시로 main으로 이동하게 변경
 			}
 			
 			//로그아웃
@@ -76,6 +76,6 @@ public class MemberController {
 				
 				session.setAttribute("member",null);	//조건을 구별하지 않고 세션의 member값을 null로 바꿈
 				
-				return "redirect:main.do";		
+				return "redirect:/";		
 			}
 }

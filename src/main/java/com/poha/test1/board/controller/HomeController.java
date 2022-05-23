@@ -70,7 +70,7 @@ public class HomeController {
 			if(session != null) {								// session이 null값이 아니라면  member에 session을 넣음
 				model.addAttribute("member",session);
 			}		
-			return "main";
+			return "/";
 		}
 	
 }

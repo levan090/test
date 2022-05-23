@@ -28,7 +28,7 @@
 		UPDATE ttest
 			SET
 				content = #{content}
-			WHERE testID = #{testId}
+			WHERE testId = #{testId}
 	</update>
 	
 	<!-- 게시물 총갯수 -->
