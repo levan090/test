@@ -1,6 +1,6 @@
 package com.poha.test1.board;
 
-import java.util.List;
+import java.util.List;			
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/rest")
 @Slf4j
-public class SampleRestController {
+public class SampleRestController {				//사용하지않는 컨트롤러
 
 	@GetMapping(value = "/getText", produces = "text/plain; charset=UTF-8")
 	public String getText() {

@@ -6,7 +6,7 @@
 	<title>게시글 수정 </title>
 </head>
 <body>
-<form method="post">
+<form action="modify_proc.do" method="POST">
 	
 	
 	<label>내용</label><br/>

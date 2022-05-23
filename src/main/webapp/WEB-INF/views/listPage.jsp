@@ -7,20 +7,27 @@
 <head>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-
 function getPost(mode){
+	getPost(mode,"");
+}
+function getPost(mode,testId){
+
 	var theForm = document.insertText;
-//	var id = document.getByName("");
 	if( mode == 'insert')				// 데이터 삽입
 		{
+	
 			theForm.method = "post";
 			theForm.action = "/inserttest.do";
 		}
-	else if(isNaN(mode) == 'false')				//동작 x
+	else		
 		{
+			
 			theForm.method = "post";
-			theForm.action = "/test1/modify" 
-			theForm.testId = "mode";
+			theForm.action = "/modify2.do";
+			theForm.testId = testId;
+			var content = $("#input_"+testId).val();
+			//alert(''+content);
+			theForm.content = content;
 		}
 	theForm.submit();
 	
@@ -43,18 +50,13 @@ function getPost(mode){
 	<tbody>
 	<c:forEach items="${list}" var="list">
 		<tr>
-			
 			<td>${list.testId}</td>
-			<td><input name='input_${list.testId}' value="${list.content}"  disabled="disabled"/></td>
+			<td><input id='input_${list.testId}' value="${list.content}" /></td>
 			<td>작성자표시</td>
 			<div>
-			<td><a href="/modify?testId=${list.testId}"><button>수정</button></a> </td>
-			<form name = "modifyform">
-			<td><input type = button name ="modify" value = "수정2" onClick="getPost(${list.testId})"/></td>
-			</form>	
-				
+			<td><a href="/modify.do?testId=${list.testId}"><button>수정</button></a> </td>
+			<td><input type = button value = "수정2" onClick="getPost('update',${list.testId});"/></td>
 			<td><a href="/delete.do?testId=${list.testId}"><button>삭제</button></a></td>
-			
 			</div>
 		</tr>
 	</c:forEach>
@@ -67,7 +69,8 @@ function getPost(mode){
 <input type="submit" value="댓글입력">
 </form>  -->
 <form name = insertText >
-<input type="text" value="${vo.content}" name="content" > 
+<input type="hidden" value=${vo.testId} id = "testId" name="testId" >
+<input type="text" value="" id="content" name="content" > 
 <input type="button" name="btn1" value="입력" onClick = "getPost('insert')" />
 </form>
 
@@ -77,13 +80,13 @@ function getPost(mode){
 
 <div>
 	<c:if test="${prev}">
-		<span>[ <a href="/test1/listPage?num=${startPageNum -1}">이전</a>]</span>
+		<span>[ <a href="/listPage?num=${startPageNum -1}">이전</a>]</span>
 	</c:if>
 	
 	<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
 		<span>
 			<c:if test="${select !=num}">
-				<a href="/test1/listPage?num=${num}">${num}</a>
+				<a href="/listPage?num=${num}">${num}</a>
 			</c:if>
 			
 			<c:if test="${select ==num}">
@@ -93,7 +96,7 @@ function getPost(mode){
 	</c:forEach>
 	
 	<c:if test="${next}">
-		<span>[ <a href="/test1/listPage?num=${endPageNum + 1}">다음</a>]</span>
+		<span>[ <a href="/listPage?num=${endPageNum + 1}">다음</a>]</span>
 	</c:if>
 	
  
