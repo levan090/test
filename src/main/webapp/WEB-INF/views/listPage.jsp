@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.poha.test1.board.vo.testVO" %>
@@ -32,9 +31,9 @@ function getPost(mode,testId){
 	theForm.submit();
 	
 }
-
-
 </script>
+
+
 	<title>Home</title>
 </head>
 <body>
@@ -54,7 +53,7 @@ function getPost(mode,testId){
 			<td><input id='input_${list.testId}' value="${list.content}" /></td>
 			<td>작성자표시</td>
 			<div>
-			<td><a href="/modify?testId=${list.testId}"><button>기존 수정</button></a> </td> 
+			<td><a href="/modify?testId=${list.testId}"><button>[동작x modify 테스트중]</button></a> </td> 
 			<td><a href="/modify.do?testId=${list.testId}"><button>modify</button></a> </td> 
 			<td><input type = button value = "modify2" onClick="getPost('update',${list.testId});"/></td>
 			<td><a href="/delete.do?testId=${list.testId}"><button>삭제</button></a></td>
@@ -77,7 +76,7 @@ function getPost(mode,testId){
 
 
 
-<!-- 페이징 -->
+<!-- 페이징  -->
 
 <div>
 	<c:if test="${prev}">
@@ -102,6 +101,8 @@ function getPost(mode,testId){
 	
  
 </div>
+ 
+
 </body>
 
 </html>

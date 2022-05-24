@@ -42,7 +42,7 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	
-	// insert 기능
+	// 게시글 작성
 			@RequestMapping(value = "/inserttest.do")
 			public String inserttest(HttpServletRequest httpServletRequest, Model model) throws Exception {
 				
@@ -62,7 +62,7 @@ public class BoardController {
 				
 			}
 		
-		// 게시글 테이블 조회
+		// 게시글  조회
 		@RequestMapping(value = "/dbtest.do")
 		public String dbtest(Locale locale, Model model) {
 			List<testVO> list = sqlSession.selectList("test1.selectTest");
@@ -105,7 +105,8 @@ public class BoardController {
 //			logger.info("post.register");
 //			service.modify(vo);
 //		
-//			return "redirect:listPage?num=1";
+//			//return "redirect:listPage?num=1";
+//			return "redirect:/";
 //		}
 		
 		
@@ -123,11 +124,11 @@ public class BoardController {
 			}
 			// 게시글 수정을 처리함
 			@RequestMapping(value="/modify_proc.do")			
-			public String modify_Proc(testVO vo) throws Exception{
+			public String modify_Proc(@RequestParam("testId") int testId, testVO vo) throws Exception{
 			
 				service.modify(vo);
 				logger.info("modify_proc.do");
-				return "redirect:listPage?num=1";
+				return "redirect:/";
 			}
 		
 		// merge

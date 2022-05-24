@@ -17,13 +17,15 @@
 		text-align: center;
 	}
 	
-	.td_side{
-		width:300px;
+	#td_side{
+		width:100%;
+		height:100%;
 	}
 	
 </style>
 <script src="//code.jquery.com/jquery.min.js"></script>
-
+<script type="text/javascript">
+</script>
 
 <title>Insert title here</title>
 </head>
@@ -31,7 +33,7 @@
 	<table border=1>
 		<tr>
 		<td colspan=2>
-		<div class = "loginSys" align="right">
+		<div id = "loginSys" align="right">
 			<c:if test="${member != null}">
 				<div>
 				<p>${member.userId} 님 환영합니다.</p>
@@ -50,13 +52,14 @@
 		
 		<tr>
 			<td class="td_side">
-				<div class = "sideMenu">
+				<div id = "sideMenu">
 					<jsp:include page="menu.jsp" flush="false"/>  
 				</div>
 			</td>
 			<td rowspan=3>
-				<div class ="logintext">
+				<div id ="logintext">
 					<c:if test="${member != null}">
+						<p>로그인중입니다.</p>
 						<jsp:include page="listPage.jsp" flush="false"/> 
 						
 					</c:if>
