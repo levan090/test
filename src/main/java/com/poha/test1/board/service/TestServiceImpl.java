@@ -15,26 +15,26 @@ public class TestServiceImpl implements TestService {
 	@Inject
 	private TestDAO dao;
 	
-	//게시물 목록
+	//게시글 목록
 	@Override
 	public List<testVO> list() throws Exception {
 			return dao.list();
 	}
 	
-	//게시물 작성
+	//게시글 작성
 	@Override
 	public void insert(testVO vo) throws Exception{
 			dao.insertTest(vo);
 	}
 
-	//게시물 삭제 
+	//게시글 삭제 
 	@Override
 	public void delete(int testId) throws Exception {
 		dao.delete(testId);
 		
 	}
 	
-	// 게시물 수정
+	// 게시글 수정
 	@Override
 	public void modify(testVO vo) throws Exception{
 		dao.modify(vo);	

@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -88,49 +89,59 @@ public class BoardController {
 			
 		}
 		
-		// 게시글 수정		 기존 코드 get과 post형식에서 변경필요함
-		@RequestMapping(value="/modify",method = RequestMethod.GET)
-		public void getModify(@RequestParam("testId") int testId, Model model) throws Exception{
-			List<testVO> list = sqlSession.selectList("test1.selectTest");
-			logger.info("get.register");
-			for (int i = 0; i < list.size(); i++) {
-				testVO testSelect = (testVO)list.get(i);
-	
+//		// 게시글 수정		 기존 코드 get과 post형식에서 변경필요함
+//		@RequestMapping(value="/modify",method = RequestMethod.GET)
+//		public void getModify(@RequestParam("testId") int testId, Model model) throws Exception{
+//			List<testVO> list = sqlSession.selectList("test1.selectTest");
+//			logger.info("get.register");
+//			for (int i = 0; i < list.size(); i++) {
+//				testVO testSelect = (testVO)list.get(i);
+//			}
+//			model.addAttribute("list", list);
+//		}
+//		// 게시글 수정2
+//		@RequestMapping(value="/modify",method = RequestMethod.POST)
+//		public String getModify(testVO vo) throws Exception{
+//			logger.info("post.register");
+//			service.modify(vo);
+//		
+//			return "redirect:listPage?num=1";
+//		}
+		
+		
+		// 게시글 수정요청 받음					새로 만들었으나 동작하지 않음. modify 부분에서 값이 진행하는 것은 확인했으나 업데이트 되지않음.
+			@RequestMapping(value="/modify.do")
+			public String modify(@ModelAttribute("vo") testVO vo, Model model) throws Exception{
+				List<testVO> list = sqlSession.selectList("test1.selectTest");
+				
+				for (int i = 0; i < list.size(); i++) {
+					testVO testSelect = (testVO)list.get(i);
+				}
+				model.addAttribute("list", list);
+				logger.info("modify.do");
+				return "modify";
+				
 			}
+			// 게시글 수정을 처리함
+			@RequestMapping(value="/modify_proc.do")			
+			public String modify_Proc(@ModelAttribute("vo") testVO vo, Model model) throws Exception{
 			
-			model.addAttribute("list", list);
-			
-		}
-		// 게시글 수정2
-		@RequestMapping(value="/modify",method = RequestMethod.POST)
-		public String getModify(testVO vo) throws Exception{
-			logger.info("post.register");
-			service.modify(vo);
+				service.modify(vo);
+				logger.info("modify_proc.do");
+				return "redirect:listPage?num=1";
+			}
 		
-			return "redirect:listPage?num=1";
-		}
-		
-		
-//		// 게시글 수정요청 받음					새로 만들었으나 동작하지 않음. modify 부분에서 값이 진행하는 것은 확인했으나 업데이트 되지않음.
-//			@RequestMapping(value="/modify.do")
-//			public String getModify(testVO vo, Model model) throws Exception{
-//				List<testVO> list = sqlSession.selectList("test1.selectTest");
-//				
-//				logger.info("modify.do");
-//				return "modify";
-//				
-//			}
-//			// 게시글 수정을 처리함
-//			@RequestMapping(value="/modify_proc.do")			
-//			public String getModify_Proc(testVO vo,Model model) throws Exception{
-//				
-//				service.modify(vo);
-//				logger.info("modify_proc.do");
-//				return "redirect:listPage?num=1";
-//			}
-		
-		
-		
+		// merge
+			@RequestMapping(value="/modify2.do")
+			public String Modify2(@ModelAttribute("vo") testVO vo,Model model) throws Exception{
+					return "modify2";
+			}
+			@RequestMapping(value="modify2_proc.do")
+			public String Modify2_proc(@ModelAttribute("vo") testVO vo,Model model) throws Exception{
+				service.merge(vo);
+				
+				return "redirect:listPage?num=1";
+			}
 
 		//게시글 목록+ 페이징 추가
 		@RequestMapping(value="/listPage", method = RequestMethod.GET)

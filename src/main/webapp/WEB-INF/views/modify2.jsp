@@ -7,21 +7,16 @@
 <head>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	$('.sub').click(function(){
-		var con =$(content).val();		
-		alert(''+con);
-	});
-})
+
 </script>
-	<title>게시글 수정 </title>
+	<title>게시글 수정2 </title>
 </head>
 <body>
-<!--<form  method="post">	-->
- <form name="modify" action="modify_proc.do" method="post"> 	
+<!--<form  method="post">	--> 
+ <form name="modify2" action="modify2_proc.do"> 	
 
-	<input type="hidden"  id="testId" value="${vo.testId}" />
 	<label>내용</label><br/>
+	<input type="hidden" value="${list.testId}" id = "testId" name="testId" >
 	<input type ="text" name="content" id="content" value="" /> <br/>
 	<button type ="submit" class="sub" >게시글 수정</button>
 	</form>

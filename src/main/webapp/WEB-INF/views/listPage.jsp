@@ -21,9 +21,8 @@ function getPost(mode,testId){
 		}
 	else		
 		{
-			
 			theForm.method = "post";
-			theForm.action = "/modify2.do";
+			theForm.action = "/modify2.do";		// 아직 구현 안함.
 			theForm.testId = testId;
 			//alert(testId);
 			var content = $("#input_"+testId).val();
@@ -55,9 +54,9 @@ function getPost(mode,testId){
 			<td><input id='input_${list.testId}' value="${list.content}" /></td>
 			<td>작성자표시</td>
 			<div>
-			<td><a href="/modify?testId=${list.testId}"><button>수정</button></a> </td> 
-			<td><a href="/modify.do?testId=${list.testId}"><button>변경중인 수정</button></a> </td> 
-			<td><input type = button value = "수정2" onClick="getPost('update',${list.testId});"/></td>
+			<td><a href="/modify?testId=${list.testId}"><button>기존 수정</button></a> </td> 
+			<td><a href="/modify.do?testId=${list.testId}"><button>modify</button></a> </td> 
+			<td><input type = button value = "modify2" onClick="getPost('update',${list.testId});"/></td>
 			<td><a href="/delete.do?testId=${list.testId}"><button>삭제</button></a></td>
 			</div>
 		</tr>
