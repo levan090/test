@@ -57,8 +57,8 @@ public class BoardController {
 				if(cou%postNum == 0) { no = no+1;}			// 새로운 페이지가 생길 경우
 				
 				logger.info("insert data");
-				return "redirect:listPage?num=" + no;
-				
+				//return "redirect:listPage.do?num=" + no;
+				return "redirect:/";
 				
 			}
 		
@@ -85,8 +85,8 @@ public class BoardController {
 				
 			service.delete(testId);
 			logger.info("delete data");
-			return "redirect:listPage?num=1";
-			
+			//return "redirect:listPage.do?num=1";
+			return "redirect:/";
 		}
 		
 //		// 게시글 수정		 기존 코드 get과 post형식에서 변경필요함
@@ -111,9 +111,8 @@ public class BoardController {
 		
 		// 게시글 수정요청 받음					새로 만들었으나 동작하지 않음. modify 부분에서 값이 진행하는 것은 확인했으나 업데이트 되지않음.
 			@RequestMapping(value="/modify.do")
-			public String modify(@ModelAttribute("vo") testVO vo, Model model) throws Exception{
+			public String modify(@RequestParam("testId") int testId, Model model) throws Exception{
 				List<testVO> list = sqlSession.selectList("test1.selectTest");
-				
 				for (int i = 0; i < list.size(); i++) {
 					testVO testSelect = (testVO)list.get(i);
 				}
@@ -124,7 +123,7 @@ public class BoardController {
 			}
 			// 게시글 수정을 처리함
 			@RequestMapping(value="/modify_proc.do")			
-			public String modify_Proc(@ModelAttribute("vo") testVO vo, Model model) throws Exception{
+			public String modify_Proc(testVO vo) throws Exception{
 			
 				service.modify(vo);
 				logger.info("modify_proc.do");
@@ -144,7 +143,7 @@ public class BoardController {
 			}
 
 		//게시글 목록+ 페이징 추가
-		@RequestMapping(value="/listPage", method = RequestMethod.GET)
+		@RequestMapping(value="/listPage.do")
 		public void getListPage(Model model, @RequestParam("num") int num) throws Exception{
 
 			

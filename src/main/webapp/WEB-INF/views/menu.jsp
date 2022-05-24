@@ -14,7 +14,7 @@ ul {background-color: yellow;}
 	<ul>
 		<li><a href="/">메인메뉴</a><br/></li>
 		<li><a href="/dbtest.do">기본 리스트</a> <br/></li>
-		<li><a href="/listPage?num=1">리스트(페이징)</a> <br/> </li>
+		<li><a href="/listPage.do?num=1">리스트(페이징)</a> <br/> </li>
 		<li>추가 예정</li>
 	</ul>
 

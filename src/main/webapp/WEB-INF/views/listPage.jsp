@@ -81,13 +81,13 @@ function getPost(mode,testId){
 
 <div>
 	<c:if test="${prev}">
-		<span>[ <a href="/listPage?num=${startPageNum -1}">이전</a>]</span>
+		<span>[ <a href="/listPage.do?num=${startPageNum -1}">이전</a>]</span>
 	</c:if>
 	
 	<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
 		<span>
 			<c:if test="${select !=num}">
-				<a href="/listPage?num=${num}">${num}</a>
+				<a href="/listPage.do?num=${num}">${num}</a>
 			</c:if>
 			
 			<c:if test="${select ==num}">
@@ -97,7 +97,7 @@ function getPost(mode,testId){
 	</c:forEach>
 	
 	<c:if test="${next}">
-		<span>[ <a href="/listPage?num=${endPageNum + 1}">다음</a>]</span>
+		<span>[ <a href="/listPage.do?num=${endPageNum + 1}">다음</a>]</span>
 	</c:if>
 	
  

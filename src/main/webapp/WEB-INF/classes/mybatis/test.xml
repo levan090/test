@@ -8,7 +8,7 @@
 	<select id="selectTest" resultType="com.poha.test1.board.vo.testVO">
 		SELECT testId, content
 		  FROM ttest
-		  ORDER BY testId ASC
+		  ORDER BY testId DESC
  	</select>
 
 	<!-- 게시물 작성 -->
@@ -40,7 +40,7 @@
 	<select id="listPage" parameterType="hashMap" resultType="com.poha.test1.board.vo.testVO">
  		SELECT testId, content
  		FROM ttest
- 		ORDER BY testId ASC
+ 		ORDER BY testId DESC
  			limit #{displayPost},#{postNum}
  	</select>
  	
