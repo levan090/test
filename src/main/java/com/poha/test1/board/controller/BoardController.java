@@ -139,7 +139,7 @@ public class BoardController {
 				String testId = httpServletRequest.getParameter("testId");
 				
 				service.merge(testId,content);
-				return null;
+				return "redirect:/";
 			}
 
 		//게시글 목록+ 페이징 추가

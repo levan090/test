@@ -22,14 +22,16 @@ function getPost(mode,testId){
 		{
 	
 			theForm.method = "post";
-			theForm.action = "/modify2_proc.do";		// 아직 구현 안함.
-			theForm.testId = testId;
-			//alert(testId);
+			theForm.action = "/modify2_proc.do";		 
+			//theForm.testId = testId;					// object에 값을 넣으려고 해서 동작x
+			theForm.testId.value = testId;				// value에 값을 넣어야 동작함
+		
 			// 5. document로 원하는 id을 가진 값을 가져온다.
 			// 6. 함수로 가져온 form의 content에 넣는다.
 			var content = $("#input_"+testId).val();
+			//alert(theForm.testId.value);
 			//alert(''+content);
-			theForm.content = content;
+			theForm.content.value = content;
 		}
 	// 7. submit 함
 	theForm.submit();
