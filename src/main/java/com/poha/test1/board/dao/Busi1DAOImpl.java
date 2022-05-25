@@ -18,6 +18,12 @@ public class Busi1DAOImpl implements Busi1DAO {
 	private static String namespace="test1";
 	
 	public List<Busi1VO> list() throws Exception{
-		return sql.selectList(namespace+".select");
+		return sql.selectList(namespace+".ubi_select");
+	}
+
+	@Override
+	public void insert(Busi1VO vo) throws Exception {
+		sql.insert(namespace+".ubi_insert",vo);
+		
 	}
 }

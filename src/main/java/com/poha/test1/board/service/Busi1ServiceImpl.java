@@ -19,4 +19,10 @@ public class Busi1ServiceImpl implements Busi1Service {
 	public List<Busi1VO> list() throws Exception{
 		return dao.list();
 	}
+
+	@Override
+	public void insert(Busi1VO vo) throws Exception {
+		dao.insert(vo);
+		
+	}
 }

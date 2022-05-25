@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<style type="text/css">
+#name {
+	text-align: center;
+	font-size : 200%;
+		}
+</style>
+<title>ubi</title>
 </head>
 <body>
+	<div id="name">테이블</div>
 	<jsp:include page="ubi_chart.jsp" flush="false"/>
+	
+	<a href="/ubi_write.do">작성</a>
 </body>
 </html>
