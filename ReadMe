@@ -26,6 +26,20 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+**DB 스키마 [ubi]
+CREATE TABLE `ubirep` (
+	`pro_code` INT(11) NOT NULL AUTO_INCREMENT,
+	`pro_name` VARCHAR(100) NULL DEFAULT NULL,
+	`brand_code` INT(11) NULL DEFAULT NULL,
+	`pro_category` INT(11) NULL DEFAULT NULL,
+	`pro_year` VARCHAR(100) NULL DEFAULT NULL,
+	`pro_price` INT(11) NULL DEFAULT NULL,
+	PRIMARY KEY (`pro_code`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
 **도커 적용하기
 - https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:dev3.6:dep:build_tool:docker  <-- 따라함
 
