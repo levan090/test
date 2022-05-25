@@ -16,6 +16,6 @@
 	<div id="name">테이블</div>
 	<jsp:include page="ubi_chart.jsp" flush="false"/>
 	
-	<a href="/ubi_write.do">작성</a>
+	<a href="/ubi_write.do"><button>작성</button></a>
 </body>
 </html>

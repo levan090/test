@@ -25,4 +25,22 @@ public class Busi1ServiceImpl implements Busi1Service {
 		dao.insert(vo);
 		
 	}
+
+	@Override
+	public void merge(String pro_code, String pro_name, String brand_code, String pro_category, String pro_year,
+			String pro_price) throws Exception {
+		dao.merge(pro_code, pro_name,brand_code, pro_category, pro_year, pro_price);
+		
+	}
+
+	@Override
+	public Busi1VO view(int pro_code) throws Exception {
+		return dao.view(pro_code);
+	}
+
+	@Override
+	public void modify(Busi1VO vo) throws Exception {
+		dao.modify(vo);
+		
+	}
 }

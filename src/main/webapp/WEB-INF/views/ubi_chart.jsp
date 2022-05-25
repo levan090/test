@@ -43,8 +43,11 @@ table,tr,th,td {
 	<tbody>
 	<c:forEach items="${list}" var="list">
 		<tr>
-			<td>${list.pro_code}</td>
-			<td>${list.pro_name}</td>
+			<td><a href="/ubi_view.do?pro_code=${list.pro_code}">
+			${list.pro_code}</a></td>
+			<td>
+				${list.pro_name}
+				</td>
 			<td>${list.brand_code} / ${list.pro_category}</td>
 			<td>${list.pro_year}</td>
 			<td id="pro_price">${list.pro_price}</td>
