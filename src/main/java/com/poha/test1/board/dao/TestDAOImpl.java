@@ -62,8 +62,14 @@ public class TestDAOImpl implements TestDAO{
 	}
 
 	@Override
-	public void merge(testVO vo) throws Exception {
-		sql.update(namespace + ".merge", vo);
+	public void merge(String testId,String content) throws Exception {
+		
+		HashMap data = new HashMap();
+		  
+		 data.put("testId", testId);
+		 data.put("content", content);
+		
+		sql.insert(namespace + ".merge", data);
 	}
 	
 }

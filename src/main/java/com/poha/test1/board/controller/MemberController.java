@@ -41,7 +41,7 @@ public class MemberController {
 				return "login";
 			}
 
-			// 로그인 요청을 받음
+			// 로그인 요청을 받음 (jsp화면을 보여준다)
 			@RequestMapping(value = "/login.do")			
 			public String login(MemberVO vo, HttpServletRequest req) throws Exception{
 				
@@ -51,7 +51,7 @@ public class MemberController {
 				return "login";
 			}
 			
-			// 로그인을 처리함
+			// 로그인을 처리함 (로그인을 실제로 처리하는부분)
 			@RequestMapping(value = "/login_proc.do")		
 			public String login_proc(MemberVO vo, HttpServletRequest req) throws Exception{
 				

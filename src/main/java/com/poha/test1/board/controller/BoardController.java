@@ -124,7 +124,7 @@ public class BoardController {
 			}
 			// 게시글 수정을 처리함
 			@RequestMapping(value="/modify_proc.do")			
-			public String modify_Proc(@RequestParam("testId") int testId, testVO vo) throws Exception{
+			public String modify_Proc(@RequestParam("testId") int testId,testVO vo) throws Exception{
 			
 				service.modify(vo);
 				logger.info("modify_proc.do");
@@ -132,15 +132,14 @@ public class BoardController {
 			}
 		
 		// merge
-			@RequestMapping(value="/modify2.do")
-			public String Modify2(@ModelAttribute("vo") testVO vo,Model model) throws Exception{
-					return "modify2";
-			}
-			@RequestMapping(value="modify2_proc.do")
-			public String Modify2_proc(@ModelAttribute("vo") testVO vo,Model model) throws Exception{
-				service.merge(vo);
+			@RequestMapping(value="/modify2_proc.do")
+			public String Modify2(HttpServletRequest httpServletRequest) throws Exception{
+			
+				String content = httpServletRequest.getParameter("content");
+				String testId = httpServletRequest.getParameter("testId");
 				
-				return "redirect:listPage?num=1";
+				service.merge(testId,content);
+				return null;
 			}
 
 		//게시글 목록+ 페이징 추가

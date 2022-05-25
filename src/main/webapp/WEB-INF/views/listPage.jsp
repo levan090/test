@@ -9,28 +9,33 @@
 function getPost(mode){
 	getPost(mode,"");
 }
-function getPost(mode,testId){
+function getPost(mode,testId){		
 
+	// 4. 함수에서는  form을 가져온다
 	var theForm = document.insertText;
 	if( mode == 'insert')				// 데이터 삽입
 		{
-	
 			theForm.method = "post";
 			theForm.action = "/inserttest.do";
 		}
 	else		
 		{
+	
 			theForm.method = "post";
-			theForm.action = "/modify2.do";		// 아직 구현 안함.
+			theForm.action = "/modify2_proc.do";		// 아직 구현 안함.
 			theForm.testId = testId;
 			//alert(testId);
+			// 5. document로 원하는 id을 가진 값을 가져온다.
+			// 6. 함수로 가져온 form의 content에 넣는다.
 			var content = $("#input_"+testId).val();
 			//alert(''+content);
 			theForm.content = content;
 		}
+	// 7. submit 함
 	theForm.submit();
 	
 }
+
 </script>
 
 
@@ -49,12 +54,15 @@ function getPost(mode,testId){
 	<tbody>
 	<c:forEach items="${list}" var="list">
 		<tr>
-			<td>${list.testId}</td>
-			<td><input id='input_${list.testId}' value="${list.content}" /></td>
+			<td>${list.testId}</td> 
+			<!-- 1. 리스트값을 이름붙여서 input 담아주기 -->
+			<td><input id='input_${list.testId}' value="${list.content}" /></td>		
 			<td>작성자표시</td>
 			<div>
+			
 			<td><a href="/modify?testId=${list.testId}"><button>[동작x modify 테스트중]</button></a> </td> 
 			<td><a href="/modify.do?testId=${list.testId}"><button>modify</button></a> </td> 
+			<!-- 2. 수정버튼에 자바스크립트 함수 실행 list.testId를 argument로 넘겨준다. -->
 			<td><input type = button value = "modify2" onClick="getPost('update',${list.testId});"/></td>
 			<td><a href="/delete.do?testId=${list.testId}"><button>삭제</button></a></td>
 			</div>
@@ -68,6 +76,7 @@ function getPost(mode,testId){
 <input type="text" value="${vo.content}" name="content" > 
 <input type="submit" value="댓글입력">
 </form>  -->
+<!-- 3. form 이름을 붙여준다. -->
 <form name = insertText >
 <input type="hidden" value=${vo.testId} id = "testId" name="testId" >
 <input type="text" value="" id="content" name="content" > 

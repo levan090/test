@@ -50,8 +50,8 @@ public class TestServiceImpl implements TestService {
 	}
 
 	@Override
-	public void merge(testVO vo) throws Exception{
-		dao.merge(vo);	
+	public void merge(String testId,String content) throws Exception{
+		dao.merge(testId, content);	
 	}
 	
 }

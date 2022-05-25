@@ -20,10 +20,10 @@ $(document).ready(function(){
 	<title>게시글 수정 </title>
 </head>
 <body>
-<!--<form name="modify">	 -->	
-<form name="modify" action="modify_proc.do">  	
+<!--<form name="modify" method="post">	 -->	
+<form name="modify" action="modify_proc.do" method="post">  	
 
-	<input type="hidden"  id="testId" name="testId" value="${vo.testId}" />
+	<input type="hidden"  id="testId" name="testId" value="${vo.testId}"/>
 	<label>내용</label><br/>
 	<input type ="text" name="content" id="content" value="" /> <br/>
 	<button type ="submit" class="sub" >게시글 수정</button>
