@@ -30,7 +30,7 @@ public class Busi1DAOImpl implements Busi1DAO {
 
 	@Override
 	public void merge(String pro_code, String pro_name, String brand_code, String pro_category, String pro_year,
-			String pro_price) throws Exception {
+			String pro_price, String store_id) throws Exception {
 		
 		HashMap data = new HashMap();
 		  
@@ -40,6 +40,7 @@ public class Busi1DAOImpl implements Busi1DAO {
 		 data.put("pro_category", pro_category);
 		 data.put("pro_year", pro_year);
 		 data.put("pro_price", pro_price);
+		 data.put("store_id",store_id );
 		 
 		sql.insert(namespace + ".ubi_merge", data);
 		
@@ -51,11 +52,7 @@ public class Busi1DAOImpl implements Busi1DAO {
 		return sql.selectOne(namespace+".ubi_view",pro_code);
 	}
 
-	@Override
-	public void modify(Busi1VO vo) throws Exception {
-		sql.update(namespace+".ubi_modify",vo);
-		
-	}
+	
 
 	@Override
 	public void delete(int pro_code) throws Exception {

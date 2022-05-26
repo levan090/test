@@ -51,6 +51,10 @@ table,tr,th,td {
 		<th>가격</th>
 		<td>${view.pro_price}</td>
 	</tr>
+	<tr>
+		<th>판매처</th>
+		<td>${view.store_id}</td>
+	</tr>
 </table>
 		<div>
 			<a href="/ubi_modify.do?pro_code=${view.pro_code}"><button>수정</button></a>

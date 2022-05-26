@@ -69,7 +69,7 @@
  	
  	<!-- ubi 조회 -->
  	<select id="ubi_select" resultType="com.poha.test1.board.vo.Busi1VO">
-		SELECT pro_code, pro_name, brand_code, pro_category, pro_year, pro_price,store_id
+		SELECT pro_code, pro_name, brand_code, pro_category, pro_year, pro_price, store_id
 		  FROM ubirep
 		  ORDER BY pro_code ASC
  	</select>
@@ -98,27 +98,15 @@
  				brand_code = #{brand_code},
  				pro_category = #{pro_category},
  				pro_year = #{pro_year}, 
- 				pro_price = #{pro_price}
+ 				pro_price = #{pro_price},
  				store_id=#{store_id}
  			
  	</insert>
  	
- 	<!-- ubi 수정-->
-	<update id="ubi_modify" parameterType="com.poha.test1.board.vo.Busi1VO">
-		UPDATE ubirep
-			SET
-				pro_name = #{pro_name},
- 				brand_code = #{brand_code},
- 				pro_category = #{pro_category},
- 				pro_year = #{pro_year}, 
- 				pro_price = #{pro_price}
- 				store_id=#{store_id}
-			WHERE pro_code = #{pro_code}
-	</update>
-	 
+ 	
 	 <!-- ubi 상세조회 -->
 	 <select id="ubi_view" parameterType="int" resultType="com.poha.test1.board.vo.Busi1VO">
-	 	SELECT pro_code, pro_name, brand_code, pro_category, pro_year, pro_price
+	 	SELECT pro_code, pro_name, brand_code, pro_category, pro_year, pro_price, store_id
 		  FROM ubirep
 		  where pro_code = #{pro_code}
 	 </select>
@@ -138,7 +126,7 @@
  	
  	<!-- ubi 특정 가게 물품 조회 -->
 	 <select id="ubi_bike_select" parameterType="int" resultType="com.poha.test1.board.vo.Busi1VO">
-		SELECT pro_code, pro_name, brand_code, pro_category, pro_year, pro_price
+		SELECT pro_code, pro_name, brand_code, pro_category, pro_year, pro_price, store_id
 		  FROM ubirep
 		  WHERE store_id = #{store_id}
 		  ORDER BY pro_code ASC

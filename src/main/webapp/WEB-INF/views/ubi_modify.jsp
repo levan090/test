@@ -22,6 +22,7 @@ function a(pro_code){
 	var pro_category = $("#pro_category").val();
 	var pro_year = $("#pro_year").val();
 	var pro_price = $("#pro_price").val();
+	var store_id = $("#store_id").val();
 	theForm.submit();
 }
 
@@ -73,6 +74,10 @@ table,tr,th,td {
 	<tr>
 		<th>가격</th>
 		<td><input type="text"  name="pro_price" id="pro_price"value="${view.pro_price}" /></td>
+	</tr>
+	<tr>
+		<th>판매처</th>
+		<td><input type="text"  name="store_id" id="store_id" value="${view.store_id}" /></td>
 	</tr>
 </table>
 </form>

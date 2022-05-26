@@ -75,6 +75,7 @@ public class Busi1Controller {
 	// ubi 게시판 작성 동작
 	@RequestMapping(value="/ubi_write_proc.do")
 	public String ubiInsert_proc(Busi1VO vo) throws Exception{
+		
 		B_service.insert(vo);
 		
 		return "redirect:/ubirep.do";
@@ -90,8 +91,9 @@ public class Busi1Controller {
 	    String pro_category = httpServletRequest.getParameter("pro_category");
 	    String pro_year = httpServletRequest.getParameter("pro_year");
 	    String pro_price = httpServletRequest.getParameter("pro_price");
+	    String store_id = httpServletRequest.getParameter("store_id");
 	    
-	    B_service.merge(pro_code,pro_name,brand_code,pro_category,pro_year,pro_price);
+	    B_service.merge(pro_code,pro_name,brand_code,pro_category,pro_year,pro_price,store_id);
 		
 		return "redirect:/ubirep.do";
 	}

@@ -20,6 +20,8 @@
 	<input type="text" name="pro_year" /><br/>
 	<label>가격</label>
 	<input type="text" name="pro_price" /><br/>
+	<label>가게</label>
+	<input type="text" name="store_id" /><br/>
 	<button type="submit">작성</button>
 </form>
 </body>
