@@ -62,10 +62,9 @@ function getPost(mode,testId){
 			<td>작성자표시</td>
 			<div>
 			
-			<td><a href="/modify?testId=${list.testId}"><button>[동작x modify 테스트중]</button></a> </td> 
-			<td><a href="/modify.do?testId=${list.testId}"><button>modify</button></a> </td> 
+			<td><a href="/modify?testId=${list.testId}"><button>수정(requestmethod요구)</button></a> </td> 
 			<!-- 2. 수정버튼에 자바스크립트 함수 실행 list.testId를 argument로 넘겨준다. -->
-			<td><input type = button value = "modify2" onClick="getPost('update',${list.testId});"/></td>
+			<td><input type = button value = "modify" onClick="getPost('update',${list.testId});"/></td>
 			<td><a href="/delete.do?testId=${list.testId}"><button>삭제</button></a></td>
 			</div>
 		</tr>

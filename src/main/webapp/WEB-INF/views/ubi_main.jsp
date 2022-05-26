@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <style type="text/css">
-#name {
-	text-align: center;
-	font-size : 200%;
-		}
-#add {
+
+#add{
 	float: right;
 }
 </style>
@@ -19,7 +17,8 @@
 	
 	<jsp:include page="ubi_chart.jsp" flush="false"/>
 	
-	<a id = "add" href="/ubi_write.do"><button>작성</button></a>
+	<a id = "add" href="/ubi_write.do"><button>다른 탭으로 가는 작성</button></a>
+	
 
 </body>
 </html>

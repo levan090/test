@@ -10,7 +10,7 @@ $(document).ready(function(){
 	$('.sub').click(function(){
 		var con =$(content).val();
 		id = document.getElementById(('vo.testId').value);
-		alert(id);		// null값이 출력됨. http://localhost:8080/modify_proc.do?testId=&content=fsafzxv	 	
+		alert(id);		// 	 	
 		alert(''+con);	// testId부분이 누락되서 업데이트가 되지않음
 	});
 })

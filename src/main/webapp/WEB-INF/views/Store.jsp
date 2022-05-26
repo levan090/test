@@ -25,10 +25,14 @@ table,tr,th,td {
 #tr_title{
 	background-color: rgba(51,204,204);
 }
+#storename {
+	text-align: center;
+	font-size : 200%;
+		}
 </style>
 </head>
 <body>
-
+<div id="storename">가게 목록</div>
 
 <table>
 	<thead>

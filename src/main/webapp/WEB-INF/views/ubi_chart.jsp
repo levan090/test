@@ -6,6 +6,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+//$(function(){
+//	$('#tadd').click(function(){
+//		$("")
+//	})
+//});
+</script>
 <meta charset="UTF-8">
 <title>ubi_main</title>
 <style>
@@ -25,11 +33,19 @@ table,tr,th,td {
 #tr_title{
 	background-color: rgba(51,204,204);
 }
+#name {
+	text-align: center;
+	font-size : 200%;
+		}
+		
+#tadd{
+	float: right;
+}		
 </style>
 </head>
 <body>
 
-<div id="name">테이블</div>
+<div id="name">판매물품 </div>
 <table>
 	<thead>
 		<tr id ="tr_title">
@@ -57,5 +73,6 @@ table,tr,th,td {
 	</tbody>
 	
 </table>
+<input type="button" id = "tadd" value="행추가" />
 </body>
 </html>
