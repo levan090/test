@@ -29,7 +29,7 @@ ENGINE=InnoDB
 **DB 스키마 [ubi]
 CREATE TABLE `ubirep` (
 	`pro_code` INT(11) NOT NULL AUTO_INCREMENT,
-	`pro_name` VARCHAR(100) NULL DEFAULT NULL,
+	`pro_name` VARCHAR(100) NOT NULL DEFAULT NULL,
 	`brand_code` INT(11) NULL DEFAULT NULL,
 	`pro_category` INT(11) NULL DEFAULT NULL,
 	`pro_year` VARCHAR(100) NULL DEFAULT NULL,

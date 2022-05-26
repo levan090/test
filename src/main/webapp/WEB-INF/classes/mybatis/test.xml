@@ -119,4 +119,10 @@
 		  FROM ubirep
 		  where pro_code = #{pro_code}
 	 </select>
+	 
+	 <!-- ubi 삭제 -->
+	 <delete id="ubi_delete" parameterType="int">
+	 	DELETE FROM ubirep
+	 	WHERE pro_code=#{pro_code}
+	 </delete>
  </mapper>

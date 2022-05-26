@@ -9,6 +9,9 @@
 	text-align: center;
 	font-size : 200%;
 		}
+#add {
+	float: right;
+}
 </style>
 <title>ubi</title>
 </head>
@@ -16,7 +19,7 @@
 	<div id="name">테이블</div>
 	<jsp:include page="ubi_chart.jsp" flush="false"/>
 	
-	<a href="/ubi_write.do"><button>작성</button></a>
+	<a id = "add" href="/ubi_write.do"><button>작성</button></a>
 
 </body>
 </html>

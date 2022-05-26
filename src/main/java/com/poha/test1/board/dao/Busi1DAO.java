@@ -18,6 +18,6 @@ public interface Busi1DAO {
 	public void modify(Busi1VO vo) throws Exception;
 	// 게시물 상세 조회
 	public Busi1VO view(int pro_code) throws Exception;
-//	// 삭제
-//	public void delete(int pro_code) throws Exception;
+	// 삭제
+	public void delete(int pro_code) throws Exception;
 }

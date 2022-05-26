@@ -72,7 +72,7 @@ public class Busi1Controller {
 	}
 	
 	@RequestMapping(value="/ubi_modify.do")
-	public String modify(HttpServletRequest httpServletRequest,Model model) throws Exception {
+	public String ubimodify(HttpServletRequest httpServletRequest,Model model) throws Exception {
 		
 		String code = httpServletRequest.getParameter("pro_code");
 		int pro_code = Integer.parseInt(code);
@@ -83,15 +83,7 @@ public class Busi1Controller {
 		return "ubi_modify";
 		
 	}
-//	
-//	@RequestMapping(value="/ubi_modify_proc.do")
-//	public String modify_proc(Busi1VO vo) throws Exception {
-//		
-//	
-//		B_service.modify(vo);
-//		
-//		return "redirect:/ubirep.do";
-//	}
+
 	//ubi 게시판 상세 조회
 	@RequestMapping(value="/ubi_view.do")
 	public void ubiView(HttpServletRequest httpServletRequest, Model model) throws Exception{
@@ -103,6 +95,14 @@ public class Busi1Controller {
 		
 	}
 	
-	
+	//ubi 게시판 삭제
+	@RequestMapping(value="/ubi_delete.do")
+	public String udidelete(HttpServletRequest httpServletRequest) throws Exception {
+		String code = httpServletRequest.getParameter("pro_code");
+		int pro_code = Integer.parseInt(code);
+		B_service.delete(pro_code);
+		
+		return "redirect:/ubirep.do";
+	}
 	
 }

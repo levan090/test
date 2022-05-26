@@ -20,4 +20,7 @@ public interface Busi1Service {
 			
 	// 게시물 수정
 			public void modify(Busi1VO vo) throws Exception;
+	
+	// 게시물 삭제
+			public void delete(int pro_code) throws Exception;
 }

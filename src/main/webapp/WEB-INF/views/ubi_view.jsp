@@ -5,11 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript">
 
-
-</script>
 <meta charset="UTF-8">
 <title>게시물 조회</title>
 <style>
@@ -58,7 +54,7 @@ table,tr,th,td {
 </table>
 		<div>
 			<a href="/ubi_modify.do?pro_code=${view.pro_code}"><button>수정</button></a>
-		
+			<a href="/ubi_delete.do?pro_code=${view.pro_code}"><button>삭제</button></a>
 		</div>
 </body>
 </html>

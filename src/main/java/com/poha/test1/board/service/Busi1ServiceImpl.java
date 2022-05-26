@@ -43,4 +43,10 @@ public class Busi1ServiceImpl implements Busi1Service {
 		dao.modify(vo);
 		
 	}
+
+	@Override
+	public void delete(int pro_code) throws Exception {
+		dao.delete(pro_code);
+		
+	}
 }

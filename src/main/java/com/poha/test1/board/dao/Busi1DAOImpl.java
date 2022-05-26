@@ -56,4 +56,10 @@ public class Busi1DAOImpl implements Busi1DAO {
 		sql.update(namespace+".ubi_modify",vo);
 		
 	}
+
+	@Override
+	public void delete(int pro_code) throws Exception {
+		sql.delete(namespace + ".ubi_delete",pro_code);
+		
+	}
 }
