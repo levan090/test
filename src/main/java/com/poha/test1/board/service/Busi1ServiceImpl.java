@@ -49,4 +49,14 @@ public class Busi1ServiceImpl implements Busi1Service {
 		dao.delete(pro_code);
 		
 	}
+
+	@Override
+	public List<Busi1VO> list_store() throws Exception {
+		return dao.list_store();
+	}
+
+	@Override
+	public List<Busi1VO> list_bike(int store_id) throws Exception {
+		return dao.list_bike(store_id);
+	}
 }

@@ -20,4 +20,9 @@ public interface Busi1DAO {
 	public Busi1VO view(int pro_code) throws Exception;
 	// 삭제
 	public void delete(int pro_code) throws Exception;
+	
+	// 가게 전체 목록
+	public List<Busi1VO> list_store() throws Exception;
+	
+	public List<Busi1VO> list_bike(int store_id) throws Exception;
 }

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ubi_main</title>
+<title>bike_Store</title>
 <style>
 /* 테이블 테두리 및 가운데 정렬*/
 table {
@@ -29,29 +29,22 @@ table,tr,th,td {
 </head>
 <body>
 
-<div id="name">테이블</div>
+
 <table>
 	<thead>
 		<tr id ="tr_title">
-			<th>물품번호</th>
-			<th>물품명</th>
-			<th>브랜드코드/카테고리</th>
-			<th>모델년도</th>
-			<th>가격(원)</th>
-			<th>판매점</th>
+			<th>가게번호</th>
+			<th>가게이름</th>
+			<th>연락처</th>
 		</tr>
 	</thead>
 	<tbody>
 	<c:forEach items="${list}" var="list">
 		<tr>
-			<td>${list.pro_code}</td>
-			<td><a href="/ubi_view.do?pro_code=${list.pro_code}">
-				${list.pro_name}
-				</a></td>
-			<td>${list.brand_code} / ${list.pro_category}</td>
-			<td>${list.pro_year}</td>
-			<td>${list.pro_price}</td>
 			<td>${list.store_id}</td>
+			<td><a href="/bikelist.do?store_id=${list.store_id}">
+			${list.store_name}</td>
+			<td>${list.store_phone}</td>
 		</tr>
 	</c:forEach>
 	</tbody>

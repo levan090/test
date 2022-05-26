@@ -62,4 +62,14 @@ public class Busi1DAOImpl implements Busi1DAO {
 		sql.delete(namespace + ".ubi_delete",pro_code);
 		
 	}
+
+	@Override
+	public List<Busi1VO> list_store() throws Exception {
+		return sql.selectList(namespace+".ubi_store_select");
+	}
+
+	@Override
+	public List<Busi1VO> list_bike(int store_id) throws Exception {
+		return sql.selectList(namespace+".ubi_bike_select",store_id);
+	}
 }

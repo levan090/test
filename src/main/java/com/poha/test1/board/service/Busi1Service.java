@@ -23,4 +23,10 @@ public interface Busi1Service {
 	
 	// 게시물 삭제
 			public void delete(int pro_code) throws Exception;
+			
+	// 가게 전체 조회
+			public List<Busi1VO> list_store() throws Exception;		
+			
+	// 가게에서 판매중인 bike 조회
+			public List<Busi1VO> list_bike(int store_id) throws Exception;
 }

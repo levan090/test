@@ -29,16 +29,36 @@ ENGINE=InnoDB
 **DB 스키마 [ubi]
 CREATE TABLE `ubirep` (
 	`pro_code` INT(11) NOT NULL AUTO_INCREMENT,
-	`pro_name` VARCHAR(100) NOT NULL DEFAULT NULL,
+	`pro_name` VARCHAR(100) NOT NULL,
 	`brand_code` INT(11) NULL DEFAULT NULL,
 	`pro_category` INT(11) NULL DEFAULT NULL,
 	`pro_year` VARCHAR(100) NULL DEFAULT NULL,
 	`pro_price` INT(11) NULL DEFAULT NULL,
-	PRIMARY KEY (`pro_code`)
+	`store_id` INT(11) NOT NULL DEFAULT 0,
+	PRIMARY KEY (`pro_code`),
+	INDEX `FK_store_id` (`store_id`),
+	CONSTRAINT `FK_store_id` FOREIGN KEY (`store_id`) REFERENCES `bikestore` (`Store_id`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=1
 ;
+
+
+CREATE TABLE `bikestore` (
+	`store_id` INT(11) NOT NULL AUTO_INCREMENT,
+	`store_name` VARCHAR(50) NOT NULL DEFAULT '',
+	`store_phone` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`store_id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+
+
+
 
 **도커 적용하기
 - https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:dev3.6:dep:build_tool:docker  <-- 따라함

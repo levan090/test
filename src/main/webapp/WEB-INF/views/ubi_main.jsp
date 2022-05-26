@@ -13,10 +13,10 @@
 	float: right;
 }
 </style>
-<title>ubi</title>
+<title>ubi_main</title>
 </head>
 <body>
-	<div id="name">테이블</div>
+	
 	<jsp:include page="ubi_chart.jsp" flush="false"/>
 	
 	<a id = "add" href="/ubi_write.do"><button>작성</button></a>

@@ -39,8 +39,33 @@ public class Busi1Controller {
 		model.addAttribute("list", list);
 		return "ubi_main";
 	}
-	
-
+	// ubi bike store목록 조회
+		@RequestMapping(value="/bikestore.do")
+		public String bikeStore(Locale locale,Model model) {
+			List<Busi1VO> list_store = sqlSession.selectList("test1.ubi_store_select");
+			
+			for (int i = 0; i < list_store.size(); i++) {
+				Busi1VO testSelect = (Busi1VO)list_store.get(i);
+				
+			}
+			model.addAttribute("list", list_store);
+			return "Store";
+		}
+		
+	// ubi 특정 가게의 판매물품리스트
+		@RequestMapping(value="/bikelist.do")
+		public String bikelist(HttpServletRequest httpServletRequest,Model model) {
+			String id = httpServletRequest.getParameter("store_id");
+			int store_id = Integer.parseInt(id);
+			List<Busi1VO> list_bike = sqlSession.selectList("test1.ubi_bike_select",store_id);
+			
+			for (int i = 0; i < list_bike.size(); i++) {
+				Busi1VO testSelect = (Busi1VO)list_bike.get(i);
+				
+			}
+			model.addAttribute("list", list_bike);
+			return "ubi_main";
+		}
 	// ubi 게시판 작성 요청
 	@RequestMapping(value="/ubi_write.do")
 	public String ubiInsert(Busi1VO vo) throws Exception{

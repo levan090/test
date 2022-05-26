@@ -20,6 +20,7 @@
 		<li><a href="/dbtest.do" id="dbtest">기본 리스트</a> <br/></li>
 		<li><a href="/listPage.do?num=1" id="listPage">리스트(페이징)</a> <br/> </li>
 		<li><a href="/ubirep.do">ubi</a></li>
+		<li><a href="/bikestore.do">bike</a></li>
 		<li>추가 예정</li>
 	</ul>
 </body>
