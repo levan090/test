@@ -55,21 +55,21 @@ public class Busi1Controller {
 		return "redirect:/ubirep.do";
 	}
 	
-//	//ubi 게시판 수정
-//	@RequestMapping(value="/ubi_modify.do")
-//	public String ubiModify(HttpServletRequest httpServletRequest)throws Exception {
-//		
-//		String pro_code = httpServletRequest.getParameter("pro_code");
-//	    String pro_name = httpServletRequest.getParameter("pro_name");
-//	    String brand_code = httpServletRequest.getParameter("brand_code");
-//	    String pro_category = httpServletRequest.getParameter("pro_category");
-//	    String pro_year = httpServletRequest.getParameter("pro_year");
-//	    String pro_price = httpServletRequest.getParameter("pro_price");
-//	    
-//	    B_service.merge(pro_code,pro_name,brand_code,pro_category,pro_year,pro_price);
-//		
-//		return "redirect:/ubirep.do";
-//	}
+	//ubi 게시판 수정
+	@RequestMapping(value="/ubi_modify_proc.do")
+	public String ubiModify(HttpServletRequest httpServletRequest)throws Exception {
+		
+		String pro_code = httpServletRequest.getParameter("pro_code");
+	    String pro_name = httpServletRequest.getParameter("pro_name");
+	    String brand_code = httpServletRequest.getParameter("brand_code");
+	    String pro_category = httpServletRequest.getParameter("pro_category");
+	    String pro_year = httpServletRequest.getParameter("pro_year");
+	    String pro_price = httpServletRequest.getParameter("pro_price");
+	    
+	    B_service.merge(pro_code,pro_name,brand_code,pro_category,pro_year,pro_price);
+		
+		return "redirect:/ubirep.do";
+	}
 	
 	@RequestMapping(value="/ubi_modify.do")
 	public String modify(HttpServletRequest httpServletRequest,Model model) throws Exception {
@@ -83,15 +83,15 @@ public class Busi1Controller {
 		return "ubi_modify";
 		
 	}
-	
-	@RequestMapping(value="/ubi_modify_proc.do")
-	public String modify_proc(Busi1VO vo) throws Exception {
-		
-	
-		B_service.modify(vo);
-		
-		return "redirect:/ubirep.do";
-	}
+//	
+//	@RequestMapping(value="/ubi_modify_proc.do")
+//	public String modify_proc(Busi1VO vo) throws Exception {
+//		
+//	
+//		B_service.modify(vo);
+//		
+//		return "redirect:/ubirep.do";
+//	}
 	//ubi 게시판 상세 조회
 	@RequestMapping(value="/ubi_view.do")
 	public void ubiView(HttpServletRequest httpServletRequest, Model model) throws Exception{
