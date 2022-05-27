@@ -8,11 +8,26 @@
 <head>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-//$(function(){
-//	$('#tadd').click(function(){
-//		$("")
-//	})
-//});
+$(document).ready(function(){
+	$('#tadd').click(function(){
+		$("#tb_list > tbody:last").append(
+				"<tr>"+
+				"<td><p>물품번호</p></td>"+
+				"<td><input type ='text' name='pro_name' 'id='pro_name' style='width:90%;' value='' /></td>"+
+				"<td><input type ='text' name='brand_code' id='brand_code' style='width:90%;' value='' /></td>"+
+				"<td><input type ='text' name='pro_category' id='pro_category'  style='width:90%;' value='' /></td>"+
+				"<td><input type ='text' name='pro_year' id='pro_year' style='width:90%;' value='' /></td>"+
+				"<td><input type ='text' name='pro_price' id='pro_price' style='width:90%;' value='' /></td>"+
+				"<td><input type ='text' name='store_id' id='store_id' style='width:90%;' value='' /></td></tr>"
+			);
+	});
+	
+	$('#tadd_save').click(function(){		// 입력된 데이터 저장기능 구현필요
+		
+		
+	});
+	
+});
 </script>
 <meta charset="UTF-8">
 <title>ubi_main</title>
@@ -22,6 +37,7 @@ table {
 	margin-left:auto;
 	margin-right:auto;
 	width: 750px;
+	table-layout : fixed;
 }
 table,tr,th,td {	
 	text-align : center;		
@@ -38,7 +54,7 @@ table,tr,th,td {
 	font-size : 200%;
 		}
 		
-#tadd{
+#tadd, #tadd_save{
 	float: right;
 }		
 </style>
@@ -46,12 +62,13 @@ table,tr,th,td {
 <body>
 
 <div id="name">판매물품 </div>
-<table>
+<table id ="tb_list">
 	<thead>
 		<tr id ="tr_title">
 			<th>물품번호</th>
 			<th>물품명</th>
-			<th>브랜드코드/카테고리</th>
+			<th>브랜드코드</th>
+			<th>카테고리</th>
 			<th>모델년도</th>
 			<th>가격(원)</th>
 			<th>판매점</th>
@@ -64,15 +81,19 @@ table,tr,th,td {
 			<td><a href="/ubi_view.do?pro_code=${list.pro_code}">
 				${list.pro_name}
 				</a></td>
-			<td>${list.brand_code} / ${list.pro_category}</td>
+			<td>${list.brand_code} </td> 
+			<td>${list.pro_category}</td>
 			<td>${list.pro_year}</td>
 			<td>${list.pro_price}</td>
 			<td>${list.store_id}</td>
 		</tr>
 	</c:forEach>
 	</tbody>
+	<form>
 	
+	</form>
 </table>
-<input type="button" id = "tadd" value="행추가" />
+<input type="button" id ="tadd" value="행추가" />
+<input type="button" id="tadd_save" value="저장" /> 
 </body>
 </html>
