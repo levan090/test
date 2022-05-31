@@ -32,10 +32,7 @@ public class Busi1Controller {
 	public String ubirep(Locale locale,Model model) {
 		List<Busi1VO> list = sqlSession.selectList("test1.ubi_select");
 		
-		for (int i = 0; i < list.size(); i++) {
-			Busi1VO testSelect = (Busi1VO)list.get(i);
-			
-		}
+
 		model.addAttribute("list", list);
 		return "ubi_main";
 	}
@@ -44,10 +41,7 @@ public class Busi1Controller {
 		public String bikeStore(Locale locale,Model model) {
 			List<Busi1VO> list_store = sqlSession.selectList("test1.ubi_store_select");
 			
-			for (int i = 0; i < list_store.size(); i++) {
-				Busi1VO testSelect = (Busi1VO)list_store.get(i);
-				
-			}
+		
 			model.addAttribute("list", list_store);
 			return "Store";
 		}
@@ -59,10 +53,7 @@ public class Busi1Controller {
 			int store_id = Integer.parseInt(id);
 			List<Busi1VO> list_bike = sqlSession.selectList("test1.ubi_bike_select",store_id);
 			
-			for (int i = 0; i < list_bike.size(); i++) {
-				Busi1VO testSelect = (Busi1VO)list_bike.get(i);
-				
-			}
+			
 			model.addAttribute("list", list_bike);
 			return "ubi_main";
 		}

@@ -57,6 +57,18 @@ AUTO_INCREMENT=1
 ;
 
 
+CREATE TABLE `comment` (
+	`com_id` INT(11) NOT NULL AUTO_INCREMENT,
+	`pro_code_com` INT(11) NULL DEFAULT NULL,
+	`com_x` INT(11) NULL DEFAULT NULL,
+	`com_y` INT(11) NULL DEFAULT NULL,
+	`com_content` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`com_id`),
+	INDEX `FK__ubirep` (`pro_code_com`),
+	CONSTRAINT `FK__ubirep` FOREIGN KEY (`pro_code_com`) REFERENCES `ubirep` (`pro_code`)
+)
+ENGINE=InnoDB
+;
 
 
 
