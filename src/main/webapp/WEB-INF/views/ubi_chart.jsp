@@ -8,10 +8,14 @@
 <head>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-var count = 0;
+var count = $("#tb_list tr").length;
 var num = 0;
+
 $(document).ready(function(){
+	
 	$('#rowadd').click(function(){
+//		alert(count);
+		num = num + count - 1;
 		num++;
 		$("#tb_list > tbody:last").append(
 				"<tr>"+
@@ -40,27 +44,28 @@ $(document).ready(function(){
 		
 		var pro_name = $("#pro_name_"+num).val();
 		theForm.pro_name.value = pro_name;
-	//	alert(theForm.pro_name.value);
+		//alert(theForm.pro_name.value);
 		
 		var brand_code =$("#brand_code_"+num).val();
 		theForm.brand_code.value = brand_code;
-	//	alert(theForm.brand_code.value);
+		//alert(theForm.brand_code.value);
 		
 		var pro_category=$("#pro_category_"+num).val();
 		theForm.pro_category.value = pro_category;
-	//	alert(theForm.pro_category.value);
+		//alert(theForm.pro_category.value);
 		
 		var pro_year=$("#pro_year_"+num).val();
 		theForm.pro_year.value = pro_year;
-	//	alert(theForm.pro_year.value);
+		//alert(theForm.pro_year.value);
 		
 		var pro_price=$("#pro_price_"+num).val();
 		theForm.pro_price.value = pro_price;
-	//	alert(theForm.pro_price.value);
+		//alert(theForm.pro_price.value);
 		
 		var store_id =$("#store_id_"+num).val();
 		theForm.store_id.value = store_id;
-	//	alert(theForm.store_id.value);
+		//alert(theForm.store_id.value);
+		
 		
 	theForm.submit();
 		
@@ -93,7 +98,43 @@ $(document).ready(function(){
 	}
 });
 	
-	
+	$('#modify').click(function(){
+		//초기화
+		// 현재 입력되어있는 값 insert
+		var trcount = $("#tb_list tr").length - 1;
+		alert(trcount);
+		for(var i = 0; i<trcount;i++){
+			var theForm = document.inserttable;
+			theForm.method = "post";
+			theForm.action="/ubi_clear&write_proc.do";
+			
+			var pro_name = $("#pro_name_"+ i).val();
+			theForm.pro_name.value = pro_name;
+			//alert(theForm.pro_name.value);
+			
+			var brand_code =$("#brand_code_"+i).val();
+			theForm.brand_code.value = brand_code;
+			//alert(theForm.brand_code.value);
+			
+			var pro_category=$("#pro_category_"+i).val();
+			theForm.pro_category.value = pro_category;
+			//alert(theForm.pro_category.value);
+			
+			var pro_year=$("#pro_year_"+i).val();
+			theForm.pro_year.value = pro_year;
+			//alert(theForm.pro_year.value);
+			
+			var pro_price=$("#pro_price_"+i).val();
+			theForm.pro_price.value = pro_price;
+			//alert(theForm.pro_price.value);
+			
+			var store_id =$("#store_id_"+i).val();
+			theForm.store_id.value = store_id;
+			//alert(theForm.store_id.value);
+		
+		}
+		theForm.submit();
+	});
 	
 });
 </script>
@@ -144,21 +185,23 @@ table,tr,th,td {
 	</thead>
 	<tbody>
 	<c:forEach items="${list}" var="list" varStatus ="status">
-		<tr>
-			<td>${list.pro_code}</td>
-			<td><input value="${list.pro_name}" style='width:90%;'/></td>
-			<td><input value="${list.brand_code}" style='width:90%;'/></td> 
-			<td><input value="${list.pro_category}" style='width:90%;'/></td>
-			<td><input value="${list.pro_year}" style='width:90%;'/></td>
-			<td><input value="${list.pro_price}" style='width:90%;'/></td>
-			<td><input value="${list.store_id}" style='width:90%;'/></td>
-		</tr>
 	
+		<tr>
+			<td><input id = '${list.pro_code}' value = '${list.pro_code}' style='width:90%;' readonly/></td>
+			<td><input id = 'pro_name_${list.pro_code}' value="${list.pro_name}" style='width:90%;'/></td>
+			<td><input id = 'brand_code_${list.pro_code}' value="${list.brand_code}" style='width:90%;'/></td> 
+			<td><input id = 'pro_category_${list.pro_code}' value="${list.pro_category}" style='width:90%;'/></td>
+			<td><input id = 'pro_year_${list.pro_code}' value="${list.pro_year}" style='width:90%;'/></td>
+			<td><input id = 'pro_price_${list.pro_code}' value="${list.pro_price}" style='width:90%;'/></td>
+			<td><input id = 'store_id_${list.pro_code}' value="${list.store_id}" style='width:90%;'/></td>
+		</tr>
+		
 	</c:forEach>
 	</tbody>
 	
 </table>
-
+<a href="/ubi_clear.do"><button id = clear>clear</button></a>
+<button id ="modify">수정</button>
 <input type="button" id="rowadd_save" value="저장" /> 
 <input type="button" id ="coldele" value="열삭제" />
 <input type="button" id ="coladd" value="열추가" />

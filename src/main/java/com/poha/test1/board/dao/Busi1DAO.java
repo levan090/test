@@ -22,6 +22,8 @@ public interface Busi1DAO {
 	
 	// 가게 전체 목록
 	public List<Busi1VO> list_store() throws Exception;
-	
+	// bike 전체 목록
 	public List<Busi1VO> list_bike(int store_id) throws Exception;
+	
+	public void clear() throws Exception;
 }

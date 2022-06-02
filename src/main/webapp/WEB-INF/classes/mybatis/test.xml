@@ -103,6 +103,13 @@
  			
  	</insert>
  	
+ 	<!-- 전체 삭제 -->
+ 	<delete id="ubi_clear">
+ 		DELETE FROM ubirep
+ 	
+ 	</delete>
+ 	
+ 	<!--  초기화 -->
  	
 	 <!-- ubi 상세조회 -->
 	 <select id="ubi_view" parameterType="int" resultType="com.poha.test1.board.vo.Busi1VO">

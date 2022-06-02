@@ -66,6 +66,16 @@ public class Busi1Controller {
 	// ubi 게시판 작성 동작
 	@RequestMapping(value="/ubi_write_proc.do")
 	public String ubiInsert_proc(Busi1VO vo) throws Exception{
+	
+		B_service.insert(vo);
+		
+		return "redirect:/ubirep.do";
+	}
+	
+	@RequestMapping(value="/ubi_clear&write_proc.do")
+	public String ubireInsert_proc(Busi1VO vo) throws Exception{
+		
+		B_service.clear();
 		
 		B_service.insert(vo);
 		
@@ -122,5 +132,14 @@ public class Busi1Controller {
 		
 		return "redirect:/ubirep.do";
 	}
+	
+	//ubi 게시판 초기화
+	@RequestMapping(value="/ubi_clear.do")
+	public String ubiclear() throws Exception{
+		
+		B_service.clear();
+		return "redirect:/ubirep.do";
+	}
+	
 	
 }

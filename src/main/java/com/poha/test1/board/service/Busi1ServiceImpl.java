@@ -55,4 +55,9 @@ public class Busi1ServiceImpl implements Busi1Service {
 	public List<Busi1VO> list_bike(int store_id) throws Exception {
 		return dao.list_bike(store_id);
 	}
+
+	@Override
+	public void clear() throws Exception {
+		dao.clear();
+	}
 }

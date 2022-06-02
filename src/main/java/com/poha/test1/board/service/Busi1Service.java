@@ -28,4 +28,6 @@ public interface Busi1Service {
 			
 	// 가게에서 판매중인 bike 조회
 			public List<Busi1VO> list_bike(int store_id) throws Exception;
+			
+			public void clear() throws Exception;
 }
