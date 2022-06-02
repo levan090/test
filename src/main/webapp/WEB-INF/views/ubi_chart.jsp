@@ -17,9 +17,10 @@ $(document).ready(function(){
 //		alert(count);
 		num = num + count - 1;
 		num++;
-		$("#tb_list > tbody:last").append(
+		$("#tb_list  tbody:last").append(
 				"<tr>"+
 				"<td><input type ='hidden' name='pro_code' id='pro_code_"+ num +"'  style='width:90%;' value='' /></td>"+
+				"<td></td>"+
 				"<td><input type ='text' name='pro_name' id='pro_name_"+ num +"' style='width:90%;' value='' /></td>"+
 				"<td><input type ='text' name='brand_code' id='brand_code_"+ num +"' style='width:90%;' value='' /></td>"+
 				"<td><input type ='text' name='pro_category' id='pro_category_"+ num +"'  style='width:90%;' value='' /></td>"+
@@ -75,7 +76,7 @@ $(document).ready(function(){
 		num--;
 		var trcount = $("#tb_list tr").length;
 		if( trcount>2){
-		$('#tb_list>tbody:last>tr:last').remove();
+		$('#tb_list tbody:last tr:last').remove();
 		}
 		else {
 			alert("최소 1개의 데이터가 있어야 합니다.");
@@ -83,17 +84,17 @@ $(document).ready(function(){
 	});
 	
 	$('#coladd').click(function(){
-	var trlengh = $('#tb_list > tbody > tr').length;
+	var trlengh = $('#tb_list   tbody   tr').length;
 	
 	for(var i = 0; i<trlengh;i++){
-		var t=$('#tb_list > tbody > tr').eq(i);
+		var t=$('#tb_list   tbody   tr').eq(i);
 		t.append("<td><input type ='text' name='comment' id='comment' style='width:90%;' value='' /></td>");
 	}
 });
 	$("#coldele").click(function(){
-	var trlength = $("#tb_list > tbody > tr").length;
+	var trlength = $("#tb_list   tbody  tr").length;
 	for(var i = 0; i<trlength; i++){
-		var t = $('#tb_list > tbody > tr').eq(i);
+		var t = $('#tb_list  tbody  tr').eq(i);
 		t.children().last().remove();
 	}
 });
@@ -145,7 +146,7 @@ $(document).ready(function(){
 table {
 	margin-left:auto;
 	margin-right:auto;
-	width: 750px;
+	width: 800px;
 	table-layout : fixed;
 }
 table,tr,th,td {	
@@ -175,6 +176,7 @@ table,tr,th,td {
 	<thead>
 		<tr id ="tr_title">
 			<th>물품번호</th>
+			<th>물품명(링크)</th>
 			<th>물품명</th>
 			<th>브랜드코드</th>
 			<th>카테고리</th>
@@ -188,6 +190,7 @@ table,tr,th,td {
 	
 		<tr>
 			<td><input id = '${list.pro_code}' value = '${list.pro_code}' style='width:90%;' readonly/></td>
+			<td><a href="/ubi_view.do?pro_code=${list.pro_code}">${list.pro_name}</td>
 			<td><input id = 'pro_name_${list.pro_code}' value="${list.pro_name}" style='width:90%;'/></td>
 			<td><input id = 'brand_code_${list.pro_code}' value="${list.brand_code}" style='width:90%;'/></td> 
 			<td><input id = 'pro_category_${list.pro_code}' value="${list.pro_category}" style='width:90%;'/></td>
